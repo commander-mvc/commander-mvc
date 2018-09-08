@@ -1,8 +1,8 @@
-import { Lifetime } from '../'
+import { Lifetime } from '..'
 import { constructorToToken } from '../constructor-to-token'
 import { provide } from '../provide'
 
-export function Injectable ({ lifetime, provider } = {}) {
+export function Injectable ({ lifetime, provider } = { lifetime: null, provider: null }) {
   return constructor => {
     lifetime = lifetime || Lifetime.TRANSIENT
     const token = constructorToToken(constructor)

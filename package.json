@@ -2,8 +2,9 @@
   "name": "commander-mvc",
   "version": "0.0.0-development",
   "description": "A model-view-controller wrapper for commander CLI framework",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,5 +28,10 @@
     "chalk": "^2.4.1",
     "commander": "^2.18.0",
     "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.116",
+    "@types/node": "^10.9.4",
+    "typescript": "^3.0.3"
   }
 }

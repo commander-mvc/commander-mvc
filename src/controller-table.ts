@@ -21,7 +21,7 @@ export function contains (token) {
   return includes(Object.keys(table), token)
 }
 
-function newEntry (extend) {
+function newEntry (extend = {}) {
   return Object.assign({
     registerCommand: () => {},
     actionsForOptions: [],

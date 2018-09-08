@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "lib": [
+      "es2015",
+      "esnext"
+    ],
+    "outDir": "dist",
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "module": "commonjs",
+    "inlineSourceMap": true,
+    "inlineSources": true
+  },
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
