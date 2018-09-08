@@ -1,0 +1,31 @@
+{
+  "name": "commander-mvc",
+  "version": "0.0.0-development",
+  "description": "A model-view-controller wrapper for commander CLI framework",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/towerism/commander-mvc.git"
+  },
+  "keywords": [
+    "commander",
+    "mvc",
+    "cli",
+    "command-line"
+  ],
+  "author": "Martin Fracker",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/towerism/commander-mvc/issues"
+  },
+  "homepage": "https://github.com/towerism/commander-mvc#readme",
+  "dependencies": {
+    "awilix": "^3.0.9",
+    "chalk": "^2.4.1",
+    "commander": "^2.18.0",
+    "lodash": "^4.17.10"
+  }
+}

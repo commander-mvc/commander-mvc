@@ -1,0 +1,6 @@
+export * from './initialize-context'
+export * from './decorators'
+export * from 'awilix/lib/lifetime'
+export * from './resolve'
+export * from './provide'
+export * from './resolve-entry-point'
