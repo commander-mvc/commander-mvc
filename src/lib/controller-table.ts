@@ -32,7 +32,7 @@ function newEntry (
   return Object.assign({
     command: '',
     optionDefinitions: [],
-    registerCommand: null,
+    registerCommand: () => { return },
     actionsForOptions: [],
     actionViews: {}
   }, extend)
