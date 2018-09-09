@@ -2,11 +2,11 @@
   "name": "commander-mvc",
   "version": "0.0.0-development",
   "description": "A model-view-controller wrapper for commander CLI framework",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
     "test": "npm run lint && jest --coverage",
-    "lint": "tslint -c tslint.json -p tsconfig.test.json | snazzy"
+    "lint": "tslint -c tslint.json -p tsconfig.json | snazzy"
   },
   "repository": {
     "type": "git",
@@ -55,6 +55,17 @@
       "jsx",
       "json",
       "node"
+    ],
+    "moduleNameMapper": {
+      "@app/(.*)": "<rootDir>/src/$1",
+      "@e2e/(.*)": "<rootDir>/e2e/$1"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
     ]
+  },
+  "ts-jest": {
+    "tsConfiFile": "tsconfig.test.json"
   }
 }

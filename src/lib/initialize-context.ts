@@ -8,6 +8,8 @@ import { ContextInitialization } from './interfaces/context-initialization.inter
 export function initializeContext ({ entryPoint, providers }: ContextInitialization) {
   registerInjectable(CliService)
   provideAll(providers)
-  entryPointInfo.constructor = entryPoint
+  if (entryPoint) {
+    entryPointInfo.constructor = entryPoint
+  }
   return { run: (args) => resolveEntryPoint().run(args) }
 }

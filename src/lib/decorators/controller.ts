@@ -1,6 +1,6 @@
 import { add, get } from '../controller-table'
 import { constructorToToken } from '../constructor-to-token'
-import { Injectable } from './injectable'
+import { Injectable } from '../decorators/injectable'
 import { last } from 'lodash'
 import { wrapAsync } from '../wrap-async'
 import { container } from '../container'

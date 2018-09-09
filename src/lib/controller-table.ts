@@ -1,6 +1,5 @@
 import { ControllerTable, ControllerTableEntry, ControllerInfo } from './interfaces/controller-table.interface'
 import { includes } from 'lodash'
-import { ActionInfo } from './interfaces/action-info.interface'
 
 const table: ControllerTable = {} as ControllerTable
 

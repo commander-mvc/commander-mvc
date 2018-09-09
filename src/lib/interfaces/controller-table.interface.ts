@@ -18,7 +18,13 @@ export interface ControllerInfo {
   options: OptionDefinition[]
 }
 
-export type OptionDefinition = [string, string, string]
+export type OptionDefinition =
+  [string]
+  | [string, string]
+  | [string, string, OptionTransform]
+  | [string, string, OptionTransform, string]
+
+export type OptionTransform = (option: string) => any
 
 export interface ForOptionsMethodPair {
   methodName: string

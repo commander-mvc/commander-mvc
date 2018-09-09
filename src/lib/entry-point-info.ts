@@ -1,5 +1,5 @@
 import { EntryPointInfo } from './interfaces/entry-point-info.interface'
-import { CommanderStatic } from '../../node_modules/commander'
+import { CommanderStatic } from 'commander'
 import { EntryPoint } from './interfaces/entry-point.interface'
 
 class DefaultEntryPoint implements EntryPoint {
@@ -9,8 +9,8 @@ class DefaultEntryPoint implements EntryPoint {
     this._cli = cliService
   }
 
-  run (argv: string[]) {
-    this._cli.parse(argv)
+  async run (argv: string[]) {
+    return this._cli.parse(argv)
   }
 }
 

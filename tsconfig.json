@@ -1,9 +1,11 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "strictNullChecks": true,
     "alwaysStrict": true,
+    "experimentalDecorators": true,
     "declaration": true,
     "esModuleInterop": true,
     "lib": [
@@ -17,12 +19,17 @@
     ],
     "module": "commonjs",
     "inlineSourceMap": true,
-    "inlineSources": true
+    "inlineSources": true,
+    "paths": {
+      "@app/*": ["src/*"],
+      "@e2e/*": ["e2e/*"],
+    }
   },
   "include": [
-    "./src/**/*.ts"
+    "**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist"
   ]
 }
