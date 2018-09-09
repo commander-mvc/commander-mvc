@@ -1,4 +1,4 @@
-import { InjectableTable, InjectableTableEntry } from './interfaces/injectable-table.interface';
+import { InjectableTable, InjectableTableEntry } from './interfaces/injectable-table.interface'
 const table: InjectableTable = {}
 
 export function add (token: string, entry: InjectableTableEntry<any>) {

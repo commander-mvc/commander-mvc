@@ -4,7 +4,9 @@ import { provide } from '../provide'
 import { InjectableTableEntry } from '../interfaces/injectable-table.interface'
 import { Constructor } from 'awilix'
 
-export function Injectable<T extends Constructor<T>> ({ lifetime, provider }: InjectableTableEntry<T> = <InjectableTableEntry<T>>{}) {
+export function Injectable<T extends Constructor<T>> (
+  { lifetime, provider }: InjectableTableEntry<T> = {} as InjectableTableEntry<T>
+) {
   return (constructor: Constructor<T>) => {
     lifetime = lifetime || Lifetime.TRANSIENT
     const token = constructorToToken(constructor)

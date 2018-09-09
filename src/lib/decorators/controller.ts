@@ -5,8 +5,7 @@ import { last } from 'lodash'
 import { wrapAsync } from '../wrap-async'
 import { container } from '../container'
 import { ControllerInfo } from '../interfaces/controller-table.interface'
-import { CommanderStatic } from 'commander';
-import { Options } from '../interfaces/action-info.interface';
+import { Options } from '../interfaces/action-info.interface'
 
 export function Controller (controller: ControllerInfo) {
   return (constructor) => {

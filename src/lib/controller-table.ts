@@ -1,12 +1,12 @@
-import { ControllerTable, ControllerTableEntry, ControllerInfo } from './interfaces/controller-table.interface';
+import { ControllerTable, ControllerTableEntry, ControllerInfo } from './interfaces/controller-table.interface'
 import { includes } from 'lodash'
-import { ActionInfo } from './interfaces/action-info.interface';
+import { ActionInfo } from './interfaces/action-info.interface'
 
-const table: ControllerTable = <ControllerTable>{}
+const table: ControllerTable = {} as ControllerTable
 
 export function add (
   token: string,
-  entry: ControllerTableEntry | ControllerInfo = <ControllerTableEntry>{}
+  entry: ControllerTableEntry | ControllerInfo = {} as ControllerTableEntry
 ) {
   if (contains(token)) {
     Object.assign(table[token], entry)
@@ -27,12 +27,12 @@ export function contains (token: string) {
 }
 
 function newEntry (
-  extend: ControllerTableEntry | ControllerInfo = <ControllerTableEntry>{}
+  extend: ControllerTableEntry | ControllerInfo = {} as ControllerTableEntry
 ): ControllerTableEntry {
   return Object.assign({
     command: '',
     optionDefinitions: [],
-    registerCommand: () => {},
+    registerCommand: null,
     actionsForOptions: [],
     actionViews: {}
   }, extend)

@@ -1,3 +1,3 @@
 export interface View {
-  print(model: any): void
+  print (model: any): void
 }

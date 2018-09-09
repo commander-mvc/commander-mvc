@@ -1,9 +1,9 @@
-import { entryPointInfo } from './entry-point-info';
+import { entryPointInfo } from './entry-point-info'
 import { provideAll } from './provide'
 import { resolveEntryPoint } from './resolve-entry-point'
 import { CliService } from './services/cli.service'
 import { registerInjectable } from './register-injectable'
-import { ContextInitialization } from './interfaces/context-initialization.interface';
+import { ContextInitialization } from './interfaces/context-initialization.interface'
 
 export function initializeContext ({ entryPoint, providers }: ContextInitialization) {
   registerInjectable(CliService)

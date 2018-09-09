@@ -3,15 +3,15 @@ import { asClass, asValue, asFunction } from 'awilix'
 import { get } from './injection-table'
 import { contains as controllerTableContains } from './controller-table'
 import { constructorToToken } from './constructor-to-token'
-import { InjectableTableEntry } from './interfaces/injectable-table.interface';
-import { InjectionRegistrationKey } from './interfaces/injection-registration-key';
+import { InjectableTableEntry } from './interfaces/injectable-table.interface'
+import { InjectionRegistrationKey } from './interfaces/injection-registration-key'
 
 export const controllersToResolve: string[] = []
 
 export function registerInjectable (injectable: InjectionRegistrationKey) {
   if (typeof injectable === 'string') {
     registerInjection(injectable, get(injectable))
-  } else if (typeof injectable === 'function') {
+  } else {
     const token = constructorToToken(injectable)
     registerInjection(token, get(token))
   }
@@ -38,5 +38,7 @@ function getResolver (options: InjectableTableEntry<any>) {
     return asValue(provider.useValue)
   } else if (provider.useFactory) {
     return asFunction(provider.useFactory)
+  } else {
+    throw new Error('useConstructor, useValue, or useFactory must be specified')
   }
 }

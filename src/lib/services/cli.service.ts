@@ -6,7 +6,7 @@ let a = cli
 
 export const CliService = provide.provide('cliService', {
   provider: {
-    useFactory: () => 
+    useFactory: () =>
       cli
         .name(entryPointInfo.name)
         .version(entryPointInfo.version)
