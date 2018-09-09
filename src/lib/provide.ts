@@ -1,6 +1,8 @@
 import { add } from './injection-table'
 import { resolveAll } from './resolve-all'
 import { registerInjectable, controllersToResolve } from './register-injectable'
+import { Constructor } from 'awilix'
+import { InjectableTableEntry } from './interfaces/injectable-table.interface'
 
 export function provideAll (injectables) {
   injectables.forEach(injectable => {
@@ -9,7 +11,10 @@ export function provideAll (injectables) {
   resolveAll(controllersToResolve)
 }
 
-export function provide (name, { lifetime, provider }: { lifetime?, provider }) {
-  add(name, { lifetime, provider })
+export function provide<T extends Constructor<T>> (
+  name: string,
+  injectable: InjectableTableEntry<T>
+) {
+  add(name, injectable)
   return name
 }

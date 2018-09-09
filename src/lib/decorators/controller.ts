@@ -4,27 +4,30 @@ import { Injectable } from './injectable'
 import { last } from 'lodash'
 import { wrapAsync } from '../wrap-async'
 import { container } from '../container'
+import { ControllerInfo } from '../interfaces/controller-table.interface'
+import { CommanderStatic } from 'commander';
+import { Options } from '../interfaces/action-info.interface';
 
-export function Controller (options) {
+export function Controller (controller: ControllerInfo) {
   return (constructor) => {
     const token = constructorToToken(constructor)
-    add(token, options)
+    add(token, controller)
     const entry = get(token)
     const { actionsForOptions, actionViews } = entry
-    entry.registerCommand = (prefix, cliService, instance) => {
+    entry.registerCommand = (cliService, instance) => {
       const command = cliService
-        .command(options.command)
-      options.options.forEach(option => {
-        command
+        .command(controller.command)
+      controller.options.forEach(option => {
+        (command as any)
           .option(...option)
       })
       command
         .action(async (...args) => {
-          const cmd = last(args)
+          const options: Options = last(args)
           for (const { forOptions, methodName } of actionsForOptions) {
-            if (forOptions(cmd)) {
+            if (forOptions(options)) {
               await wrapAsync(async () => {
-                const model = await instance[methodName](cmd)
+                const model = await instance[methodName](options)
                 const View = actionViews[methodName]
                 if (View) {
                   const view = new View(container.cradle)

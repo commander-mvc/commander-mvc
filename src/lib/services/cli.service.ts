@@ -2,11 +2,7 @@ import cli from 'commander'
 import * as provide from '../provide'
 import { entryPointInfo } from '../entry-point-info'
 
-console.log(JSON.stringify(cli, null, 2))
-console.log(JSON.stringify(provide, null, 2))
-console.log(JSON.stringify(provide.provide, null, 2))
-console.log(JSON.stringify(provide.provideAll, null, 2))
-console.log(JSON.stringify(entryPointInfo, null, 2))
+console.log('initializing name and version')
 
 cli
   .name(entryPointInfo.name)
