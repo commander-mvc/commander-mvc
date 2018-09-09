@@ -2,14 +2,13 @@ import cli from 'commander'
 import * as provide from '../provide'
 import { entryPointInfo } from '../entry-point-info'
 
-console.log('initializing name and version')
-
-cli
-  .name(entryPointInfo.name)
-  .version(entryPointInfo.version)
+let a = cli
 
 export const CliService = provide.provide('cliService', {
   provider: {
-    useValue: cli
+    useFactory: () => 
+      cli
+        .name(entryPointInfo.name)
+        .version(entryPointInfo.version)
   }
 })

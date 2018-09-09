@@ -12,6 +12,6 @@ export interface InjectableTableEntry<T> {
 
 export interface Provider<T> {
   useValue?: any
-  useConstructor?: Constructor<T>,
-  useFactory?: FunctionReturning<T>
+  useConstructor?: Constructor<T>
+  useFactory?: FunctionReturning<T> | ((...args: any[]) => any)
 }
