@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && tsc",
-    "test": "jest --coverage",
-    "lint": "tslint -c tslint.json -p tsconfig.json | snazzy"
+    "test": "npm run lint && jest --coverage",
+    "lint": "tslint -c tslint.json -p tsconfig.test.json | snazzy"
   },
   "repository": {
     "type": "git",
