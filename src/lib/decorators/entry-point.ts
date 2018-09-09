@@ -1,7 +1,7 @@
 import { entryPointInfo } from '../entry-point-info'
 
 export function EntryPoint ({ name, version }: { name: string, version: string }) {
-  return () => {
+  return (target) => {
     Object.assign(entryPointInfo, { name, version })
   }
 }

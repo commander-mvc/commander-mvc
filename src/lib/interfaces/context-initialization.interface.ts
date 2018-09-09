@@ -1,8 +1,8 @@
 import { Constructor } from 'awilix'
-import { EntryPoint } from './entry-point.interface'
+import { Runnable } from './runnable.interface'
 import { InjectionRegistrationKey } from './injection-registration-key'
 
 export interface ContextInitialization {
-  entryPoint?: Constructor<EntryPoint>
+  entryPoint?: Constructor<Runnable>
   providers: InjectionRegistrationKey[]
 }

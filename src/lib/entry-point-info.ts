@@ -1,8 +1,8 @@
 import { EntryPointInfo } from './interfaces/entry-point-info.interface'
 import { CommanderStatic } from 'commander'
-import { EntryPoint } from './interfaces/entry-point.interface'
+import { Runnable } from './interfaces/runnable.interface'
 
-class DefaultEntryPoint implements EntryPoint {
+class DefaultEntryPoint implements Runnable {
   private _cli: CommanderStatic
 
   constructor ({ cliService }) {

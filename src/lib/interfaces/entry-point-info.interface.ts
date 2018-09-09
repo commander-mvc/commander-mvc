@@ -1,8 +1,8 @@
 import { Constructor } from 'awilix'
-import { EntryPoint } from './entry-point.interface'
+import { Runnable } from './runnable.interface'
 
 export interface EntryPointInfo {
-  constructor: Constructor<EntryPoint>
+  constructor: Constructor<Runnable>
   name: string
   version: string
 }
