@@ -7,7 +7,7 @@
     "build": "rimraf dist && tsc",
     "test": "npm run lint && jest --coverage",
     "lint": "tslint -c tslint.json -p tsconfig.json | snazzy",
-    "semantic-release": "semantic-release",
+    "semantic-release": "npm run build && semantic-release",
     "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
