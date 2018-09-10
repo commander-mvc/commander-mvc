@@ -8,7 +8,9 @@ export function Action (action: ActionInfo) {
   return (target, methodName: string) => {
     const token = constructorToToken(target.constructor)
     addActionsForOptions(token, action.forOptions, methodName)
-    addView(token, action.view, methodName)
+    if (action.view) {
+      addView(token, action.view, methodName)
+    }
   }
 }
 

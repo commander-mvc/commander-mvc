@@ -2,7 +2,7 @@ import { View } from './view.interface'
 import { Constructor } from 'awilix'
 
 export interface ActionInfo {
-  view: Constructor<View>
+  view?: Constructor<View>
   forOptions: ForOptions
 }
 

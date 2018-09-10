@@ -1,7 +1,8 @@
+import { HasArg } from '../interfaces/has-arg.interface'
 import { add, get } from '../controller-table'
 import { constructorToToken } from '../constructor-to-token'
 import { Injectable } from '../decorators/injectable'
-import { last } from 'lodash'
+import { first, last } from 'lodash'
 import { wrapAsync } from '../wrap-async'
 import { container } from '../container'
 import { ControllerInfo } from '../interfaces/controller-table.interface'
@@ -13,7 +14,7 @@ export function Controller (controller: ControllerInfo) {
     add(token, controller)
     const entry = get(token)
     const { actionsForOptions, actionViews } = entry
-    entry.registerCommand = (cliService, instance) => {
+    entry.registerCommand = (cliService, instance: HasArg) => {
       const command = cliService
         .command(controller.command)
       controller.options.forEach(option => {
@@ -26,6 +27,7 @@ export function Controller (controller: ControllerInfo) {
           for (const { forOptions, methodName } of actionsForOptions) {
             if (forOptions(options)) {
               await wrapAsync(async () => {
+                instance.arg = first(args)
                 const model = await instance[methodName](options)
                 const View = actionViews[methodName]
                 if (View) {

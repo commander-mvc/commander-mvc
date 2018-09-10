@@ -21,8 +21,8 @@ export interface ControllerInfo {
 export type OptionDefinition =
   [string]
   | [string, string]
-  | [string, string, OptionTransform]
-  | [string, string, OptionTransform, string]
+  | [string, string, OptionTransform | string]
+  | [string, string, OptionTransform | string, string]
 
 export type OptionTransform = (option: string) => any
 

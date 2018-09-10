@@ -28,14 +28,14 @@
     "awilix": "^3.0.9",
     "chalk": "^2.4.1",
     "commander": "^2.18.0",
-    "lodash": "^4.17.10",
-    "rimraf": "^2.6.2"
+    "lodash": "^4.17.10"
   },
   "devDependencies": {
     "@types/jest": "^23.3.2",
     "@types/lodash": "^4.14.116",
     "@types/node": "^10.9.4",
     "jest": "^23.5.0",
+    "rimraf": "^2.6.2",
     "snazzy": "^8.0.0",
     "standard": "^12.0.1",
     "ts-jest": "^23.1.4",
