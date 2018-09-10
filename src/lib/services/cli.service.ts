@@ -1,13 +1,21 @@
 import cli from 'commander'
-import * as provide from '../provide'
+import { provide } from '../provide'
 import { entryPointInfo } from '../entry-point-info'
+import { Lifetime } from 'awilix'
 
-let a = cli
+let initialized = false
 
-export const CliService = provide.provide('cliService', {
+export const CliService = provide('cliService', {
   provider: {
-    useValue: cli
-      .name(entryPointInfo.name)
-      .version(entryPointInfo.version)
+    useFactory: () => {
+      if (initialized) {
+        return cli
+      } else {
+        initialized = true
+        return cli
+          .name(entryPointInfo.name)
+          .version(entryPointInfo.version)
+      }
+    }
   }
 })
