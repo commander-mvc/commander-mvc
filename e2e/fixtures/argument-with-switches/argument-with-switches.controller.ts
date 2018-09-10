@@ -1,4 +1,4 @@
-import { HasArg } from './../../../src/lib/interfaces/argumentative.interface'
+import { HasArg } from '@app/lib/interfaces/has-arg.interface'
 import { Controller, Action } from '@app/lib/decorators'
 
 @Controller({

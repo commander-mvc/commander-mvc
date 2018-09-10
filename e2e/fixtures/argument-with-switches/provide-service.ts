@@ -1,13 +1,9 @@
-import { provide } from '@app/lib/provide'
+import { provideServiceValue } from '@e2e/fixtures/common/provide-service-value'
 
 export function provideService () {
   const useValue = {
     do: jest.fn().mockName('do')
   }
-  provide('service', {
-    provider: {
-      useValue
-    }
-  })
+  provideServiceValue({ useValue })
   return useValue
 }
