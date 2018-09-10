@@ -7,7 +7,7 @@ import { Constructor } from 'awilix'
 export function Injectable<T extends Constructor<T>> (
   { lifetime, provider }: InjectableTableEntry<T> = {} as InjectableTableEntry<T>
 ) {
-  return (constructor: Constructor<T>) => {
+  return (constructor: T) => {
     lifetime = lifetime || Lifetime.TRANSIENT
     const token = constructorToToken(constructor)
     provider = provider || { useConstructor: constructor }

@@ -1,15 +1,22 @@
 import chalk from 'chalk'
+import { table } from './filter-table'
+import { container } from './container'
+import { inspect } from 'util'
 
 export async function wrapAsync (fn) {
   try {
     await fn()
   } catch (error) {
-    let detail
-    if (error.message) {
-      detail = error.message
-    } else {
-      detail = error.error.detail
+    let filtered = false
+    for (let { Catches, Filter } of table) {
+      if (error instanceof Catches) {
+        const filter = new Filter(container.cradle)
+        filter.catch(error)
+      }
+      filtered = true
     }
-    console.log(chalk.bold.red(`Error: ${detail}`))
+    if (!filtered) {
+      console.log(chalk.bold.red(`Unfiltered error: ${inspect(error)}`))
+    }
   }
 }
