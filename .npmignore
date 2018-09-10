@@ -1,0 +1,9 @@
+dist/e2e
+.vscode
+!dist/src
+e2e
+src
+coverage
+tsconfig.json
+tslint.json
+.travis.yml

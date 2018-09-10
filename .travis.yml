@@ -3,10 +3,20 @@ cache:
   directories:
     - ~/.npm
     - node_modules
+notifications:
+  email: false
 node_js:
-  - 10
+  - '10'
+  - '9'
+  - '8'
+  - '6'
 before-install:
   - npm install -g codecov
 script:
   - npm run test
   - npx codecov
+after_success:
+  - npm run travis-deploy-once "npm run semantic-release"
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
