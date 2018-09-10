@@ -63,7 +63,8 @@
     "testPathIgnorePatterns": [
       "/node_modules/",
       "/dist/"
-    ]
+    ],
+    "collectCoverageFrom": ["src/**/*.ts"]
   },
   "ts-jest": {
     "tsConfiFile": "tsconfig.test.json"
