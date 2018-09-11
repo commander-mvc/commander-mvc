@@ -31,5 +31,19 @@
   "exclude": [
     "node_modules",
     "dist"
-  ]
+  ],
+  "typedocOptions": {
+    "name": "Commander MVC",
+    "out": "./docs",
+    "mode": "modules",
+    "module": "commonjs",
+    "target": "es6",
+    "readme": "./README.md",
+    "exclude": [
+      "**/*index.ts",
+      "**/*.spec.ts"
+    ],
+    "excludeNotExported": true,
+    "excludeExternals": true,
+  }
 }

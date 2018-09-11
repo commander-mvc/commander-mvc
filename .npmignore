@@ -7,3 +7,4 @@ coverage
 tsconfig.json
 tslint.json
 .travis.yml
+docs
