@@ -18,7 +18,11 @@ This is a work in progress. Contributions are welcome.
 $ npm install --save commander-mvc
 ```
 
-# Example
+## Documentation
+
+Go read the [Commander MVC Documentation](https://towerism.github.io/commander-mvc). Built using [TypeDoc](https://github.com/TypeStrong/typedoc).
+
+## Example
 
 The simplest CLI requires just a controller. This example will
 also use a view in order to keep `console.log` out of the controller.
