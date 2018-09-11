@@ -10,7 +10,7 @@ A model-view-controller wrapper for commander CLI framework
 
 ### Warning
 
-This is a work in progress. Contributions are welcome. Be sure to checkout the [CONTRIBUTING guidelines](.github/CONTRIBUTING.md)
+This is a work in progress. Contributions are welcome. Be sure to checkout the [CONTRIBUTING guidelines](.github/CONTRIBUTING.md).
 
 ## Install
 
