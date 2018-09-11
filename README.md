@@ -101,6 +101,13 @@ $ npm run build
 $ npm run test
 ```
 
+
+## Projects using commander-mvc
+
+If you use commander-mvc, feel free to add your project to this list:
+
+- [YNAB CLI](https://www.github.com/towerism/ynab-cli)
+
 ## Contributors
 
 - Martin Fracker <martin.frackerjr@gmail.com> (Affiliation: [Improving](https://www.improving.com))
