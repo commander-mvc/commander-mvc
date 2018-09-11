@@ -91,6 +91,16 @@ $ my-cli hello --name John
 Hello, John
 ```
 
-# Contributors
+## Development
+
+``` bash
+# build
+$ npm run build
+
+# test
+$ npm run test
+```
+
+## Contributors
 
 - Martin Fracker <martin.frackerjr@gmail.com> (Affiliation: [Improving](https://www.improving.com))
