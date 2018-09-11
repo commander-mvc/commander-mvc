@@ -9,6 +9,7 @@ class PostInstallCommand(install):
 
 setup(
   name='docs',
+  install_requires=['npm'],
   cmdclass={
     'install': PostInstallCommand
   }
