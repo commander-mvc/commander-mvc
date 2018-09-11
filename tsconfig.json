@@ -33,9 +33,8 @@
     "dist"
   ],
   "typedocOptions": {
-    "name": "Commander MVC",
-    "out": "./docs",
-    "mode": "modules",
+    "name": "commander-mvc",
+    "mode": "file",
     "module": "commonjs",
     "target": "es6",
     "readme": "./README.md",

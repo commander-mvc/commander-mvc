@@ -8,6 +8,11 @@ import { container } from '../container'
 import { ControllerInfo } from '../interfaces/controller-table.interface'
 import { Options } from '../interfaces/action-info.interface'
 
+/**
+ * Creates a decorator for specifying command and options.
+ * @param controller controller information that specifies the command options.
+ * @returns the decorator.
+ */
 export function Controller (controller: ControllerInfo) {
   return (constructor) => {
     const token = constructorToToken(constructor)

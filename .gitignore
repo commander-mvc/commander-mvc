@@ -1,5 +1,5 @@
 node_modules
 dist
 coverage
-.vscode/settings.json
-docs
+.vscode
+docs/_build

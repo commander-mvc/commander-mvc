@@ -10,7 +10,7 @@ A model-view-controller wrapper for commander CLI framework
 
 ### Warning
 
-This is a work in progress. Contributions are welcome.
+This is a work in progress. Contributions are welcome. Be sure to checkout the [CONTRIBUTING guidelines](.github/CONTRIBUTING.md).
 
 ## Install
 
@@ -91,6 +91,23 @@ $ my-cli hello --name John
 Hello, John
 ```
 
-# Contributors
+## Development
+
+``` bash
+# build
+$ npm run build
+
+# test
+$ npm run test
+```
+
+
+## Projects using commander-mvc
+
+If you use commander-mvc, feel free to add your project to this list:
+
+- [YNAB CLI](https://www.github.com/towerism/ynab-cli)
+
+## Contributors
 
 - Martin Fracker <martin.frackerjr@gmail.com> (Affiliation: [Improving](https://www.improving.com))
