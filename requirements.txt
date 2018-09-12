@@ -5,6 +5,7 @@ backports-abc==0.5
 certifi==2018.8.24
 chardet==3.0.4
 colorama==0.3.9
+docs==0.0.0
 docutils==0.14
 futures==3.2.0
 idna==2.7
@@ -27,6 +28,7 @@ snowballstemmer==1.2.1
 Sphinx==1.7.9
 sphinx-autobuild==0.7.1
 sphinx-js==2.7
+sphinx-rtd-theme==0.4.1
 sphinxcontrib-websupport==1.1.0
 tornado==5.1
 typing==3.6.6
