@@ -11,13 +11,14 @@ node_js:
   - '6'
 before_install:
   - npm install -g codecov
-  - pip install -r requirements.txt
+  - pip install --user 'requests[security]'
+  - pip install --user -r requirements.txt
 script:
   - npm run test
   - npx codecov
+  - npm run docs
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
-  - npm run docs
 deploy:
   provider: pages
   skip-cleanup: true
