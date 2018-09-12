@@ -10,6 +10,7 @@ node_js:
   - '8'
   - '6'
 before_install:
+  - pip install 'requests[security]'
   - npm install -g codecov
   - pip install -r requirements.txt
 script:
