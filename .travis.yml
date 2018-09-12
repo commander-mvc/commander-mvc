@@ -16,6 +16,14 @@ script:
   - npx codecov
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
+  - npm run docs
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  local-dir: docs
+  on:
+    branch: master
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
