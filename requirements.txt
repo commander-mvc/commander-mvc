@@ -5,7 +5,6 @@ backports-abc==0.5
 certifi==2018.8.24
 chardet==3.0.4
 colorama==0.3.9
-docs==0.0.0
 docutils==0.14
 futures==3.2.0
 idna==2.7
