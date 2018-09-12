@@ -2,6 +2,7 @@ language: node_js
 cache:
   directories:
     - ~/.npm
+    - $HOME/.cache/pip
 notifications:
   email: false
 node_js:
@@ -23,7 +24,7 @@ deploy:
   provider: pages
   skip-cleanup: true
   github-token: $GH_TOKEN
-  local-dir: docs/_build
+  local-dir: docs/_build/html
   on:
     branch: master
 branches:
