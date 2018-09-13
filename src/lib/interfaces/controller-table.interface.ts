@@ -15,7 +15,7 @@ export interface ControllerTableEntry extends ControllerInfo {
 
 export interface ControllerInfo {
   command: string,
-  options: OptionDefinition[]
+  options?: OptionDefinition[]
 }
 
 export type OptionDefinition =

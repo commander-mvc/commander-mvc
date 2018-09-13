@@ -6,6 +6,8 @@ export interface ActionInfo {
   forOptions: ForOptions
 }
 
+export const DEFAULT_ACTION_INFO = { forOptions: () => true }
+
 export type Option = string | boolean | Array<string>
 
 export interface Options {

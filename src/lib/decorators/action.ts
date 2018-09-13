@@ -1,10 +1,10 @@
-import { ForOptions, ActionInfo } from '../interfaces/action-info.interface'
+import { ForOptions, ActionInfo, DEFAULT_ACTION_INFO } from '../interfaces/action-info.interface'
 import { get } from '../controller-table'
 import { constructorToToken } from '../constructor-to-token'
 import { Constructor } from 'awilix'
 import { View } from '../interfaces/view.interface'
 
-export function Action (action: ActionInfo) {
+export function Action (action: ActionInfo = DEFAULT_ACTION_INFO) {
   return (target, methodName: string) => {
     const token = constructorToToken(target.constructor)
     addActionsForOptions(token, action.forOptions, methodName)
