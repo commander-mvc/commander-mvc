@@ -6,7 +6,12 @@
 [![npm (tag)](https://img.shields.io/npm/v/commander-mvc/latest.svg)](https://www.npmjs.com/package/commander-mvc)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-A model-view-controller wrapper for commander CLI framework
+Commander-mvc is a wrapper around the popular commandline argument parser and
+action dispactcher, `commander.js <https://www.github.com/tj/commander.js>`_.
+It allows you to develop elegant user interfaces using an out-of-the-box
+model-view-controller architecture. See the
+[Introduction](https://towerism.github.io/commander-mvc/introduction.html)
+section of the docs for more information.
 
 ### Warning
 
@@ -20,12 +25,14 @@ $ npm install --save commander-mvc
 
 ## Documentation
 
-Go read the [Commander MVC Documentation](https://towerism.github.io/commander-mvc). Built using [Sphinx](https://www.sphinx-doc.org) [TypeDoc](https://github.com/TypeStrong/typedoc).
+Go read the [Commander MVC Documentation](https://towerism.github.io/commander-mvc). Built using
+[Sphinx](https://www.sphinx-doc.org) and
+[TypeDoc](https://github.com/TypeStrong/typedoc).
 
 ## Example
 
 For a more tutorial-like example, checkout the 
-[Getting Started](https://towerism.github.io/commander-mvc) section of the docs.
+[Getting Started](https://towerism.github.io/commander-mvc/getting-started.html) section of the docs.
 
 The simplest CLI requires just a controller. This example will
 also use a view in order to keep `console.log` out of the controller.

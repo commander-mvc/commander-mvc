@@ -17,9 +17,7 @@ export class ExceptionFilterController {
     throw new MyException(exception)
   }
 
-  @Action({
-    forOptions: options => true
-  })
+  @Action()
   actionTwo () {
     throw new OtherException()
   }
