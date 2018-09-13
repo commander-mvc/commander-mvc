@@ -123,17 +123,26 @@ context and run our CLI application.
   :caption:
   :linenos:
 
+.. note::
+
+  Commander-mvc provides a default entrypoint. However, there is no way to
+  specify a name and a version without overriding it. In the future, it will
+  be easier to specify a name/version without overriding the default entrypoint.
+
 Finally we can build and install our CLI. First ``cd`` into the root of the
 project, and run the commands:
 
 .. code-block:: bash
 
-$ npm run build
-$ npm install -g
+  $ npm run build
+  $ npm install -g
 
 Now you can run it like this:
 
 .. code-block:: bash
+
+  $ commander-mvc-hello --help
+  1.0.0
 
   $ commander-mvc-hello --help
   Usage: index [options] [command]

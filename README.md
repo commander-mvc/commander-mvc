@@ -24,6 +24,9 @@ Go read the [Commander MVC Documentation](https://towerism.github.io/commander-m
 
 ## Example
 
+For a more tutorial-like example, checkout the 
+[Getting Started](https://towerism.github.io/commander-mvc) section of the docs.
+
 The simplest CLI requires just a controller. This example will
 also use a view in order to keep `console.log` out of the controller.
 
