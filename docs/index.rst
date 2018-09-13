@@ -6,6 +6,7 @@ Welcome to commander-mvc's documentation!
    :caption: Contents:
 
    intro
+   getting-started
 
 Indices and tables
 ==================
