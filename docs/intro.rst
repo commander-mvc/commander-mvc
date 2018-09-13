@@ -19,3 +19,11 @@ alone makes testing individual components much easier and reduces the tendency
 to import everything every which way winding up with spaghetti code. The MVC
 architecture naturally evolved as a way to shield the developer from the
 difficult-to-test aspect of commander.js.
+
+When should you use it?
+==================================
+
+You should use commander-mvc when you want to build a large, complex CLI
+application. One with multiple sub-commands and tons of options. Commander-mvc
+supercharges your application with dependency injection and offers a way to
+breakdown the definition of your CLI into smaller, more easily testable pieces.
