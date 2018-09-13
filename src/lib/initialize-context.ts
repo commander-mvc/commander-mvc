@@ -19,7 +19,7 @@ export function initializeContext ({ entryPoint, providers, name, version }: Con
 }
 
 function overrideNameAndVersion ({ name, version }: Partial<MetaInfo>) {
-  const cliService = resolve<CommanderStatic>('cliService')
+  const cliService = resolve('cliService')
   if (name) {
     entryPointInfo.name = name
     cliService.name(entryPointInfo.name)
