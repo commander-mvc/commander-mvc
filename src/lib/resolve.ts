@@ -3,7 +3,7 @@ import { container } from './container'
 import { constructorToToken } from './constructor-to-token'
 import { contains as controllerTableContains, get as getControllerOptions } from './controller-table'
 
-export function resolve (key: InjectionRegistrationKey) {
+export function resolve (key: InjectionRegistrationKey): any {
   if (typeof key === 'function') {
     key = constructorToToken(key)
   }

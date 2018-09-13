@@ -2,9 +2,12 @@ import { CommanderStatic } from 'commander'
 import { Runnable } from '@app/lib/interfaces/runnable.interface'
 import { EntryPoint } from '@app/lib/decorators'
 
+export const NAME = 'my-test'
+export const VERSION = 'test-version'
+
 @EntryPoint({
-  name: 'cli',
-  version: 'test-version'
+  name: NAME,
+  version: VERSION
 })
 export class CustomEntryPoint implements Runnable {
   _cli: CommanderStatic

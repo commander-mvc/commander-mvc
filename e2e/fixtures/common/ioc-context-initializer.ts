@@ -4,10 +4,14 @@ import { initializeContext } from '@app/lib/initialize-context'
 
 export function iocContextInitializer ({
   entryPoint,
-  providers
+  providers,
+  name,
+  version
 }: ContextInitialization) {
   return () => initializeContext({
     entryPoint,
+    name,
+    version,
     providers: [
       SERVICE_TOKEN,
       ...providers

@@ -7,10 +7,10 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 Commander-mvc is a wrapper around the popular commandline argument parser and
-action dispactcher, `commander.js <https://www.github.com/tj/commander.js>`_.
+action dispactcher, [commander.js](https://www.github.com/tj/commander.js).
 It allows you to develop elegant user interfaces using an out-of-the-box
 model-view-controller architecture. See the
-[Introduction](https://towerism.github.io/commander-mvc/introduction.html)
+[Introduction](https://towerism.github.io/commander-mvc/intro.html)
 section of the docs for more information.
 
 ### Warning
