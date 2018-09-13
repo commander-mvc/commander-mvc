@@ -2,7 +2,7 @@ import { HasArg } from '../interfaces/has-arg.interface'
 import { add, get } from '../controller-table'
 import { constructorToToken } from '../constructor-to-token'
 import { Injectable } from '../decorators/injectable'
-import { first, last } from 'lodash'
+import { first, last, each } from 'lodash'
 import { wrapAsync } from '../wrap-async'
 import { container } from '../container'
 import { ControllerInfo } from '../interfaces/controller-table.interface'
@@ -22,7 +22,7 @@ export function Controller (controller: ControllerInfo) {
     entry.registerCommand = (cliService, instance: HasArg) => {
       const command = cliService
         .command(controller.command)
-      controller.options.forEach(option => {
+      each(controller.options, option => {
         (command as any)
           .option(...option)
       })
