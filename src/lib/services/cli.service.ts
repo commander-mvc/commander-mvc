@@ -12,10 +12,18 @@ export const CliService = provide('cliService', {
         return cli
       } else {
         initialized = true
+        setNameAndVersion()
         return cli
-          .name(entryPointInfo.name)
-          .version(entryPointInfo.version)
       }
     }
   }
 })
+
+function setNameAndVersion () {
+  if (entryPointInfo.name) {
+    cli.name(entryPointInfo.name)
+  }
+  if (entryPointInfo.version) {
+    cli.version(entryPointInfo.version)
+  }
+}

@@ -3,11 +3,11 @@ import { container } from './container'
 import { constructorToToken } from './constructor-to-token'
 import { contains as controllerTableContains, get as getControllerOptions } from './controller-table'
 
-export function resolve (key: InjectionRegistrationKey) {
+export function resolve<T> (key: InjectionRegistrationKey): T {
   if (typeof key === 'function') {
     key = constructorToToken(key)
   }
-  const resolved = container.resolve(key)
+  const resolved = container.resolve<T>(key)
   registerCommandIfController(key, resolved)
   return resolved
 }
