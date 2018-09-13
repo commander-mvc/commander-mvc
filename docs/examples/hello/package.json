@@ -1,0 +1,17 @@
+{
+  "name": "commander-mvc-hello",
+  "version": "1.0.0",
+  "bin": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.1",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "commander-mvc": "^1.0.2"
+  }
+}
