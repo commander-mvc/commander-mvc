@@ -20,7 +20,7 @@ $ npm install --save commander-mvc
 
 ## Documentation
 
-Go read the [Commander MVC Documentation](https://towerism.github.io/commander-mvc). Built using [TypeDoc](https://github.com/TypeStrong/typedoc).
+Go read the [Commander MVC Documentation](https://towerism.github.io/commander-mvc). Built using [Sphinx](https://www.sphinx-doc.org) [TypeDoc](https://github.com/TypeStrong/typedoc).
 
 ## Example
 
@@ -99,6 +99,19 @@ $ npm run build
 
 # test
 $ npm run test
+```
+
+### Documentation
+
+The documentation is built in the docs directory: `cd docs`.
+[Sphinx](https://www.sphinx-doc.org) is used to build the documentation.
+
+``` bash
+# build
+$ make html
+
+# live reload at localhost:8000
+$ make livehtml
 ```
 
 
