@@ -9,9 +9,11 @@ import { ControllerInfo } from '../interfaces/controller-table.interface'
 import { Options } from '../interfaces/action-info.interface'
 
 /**
- * Creates a decorator for specifying command and options.
- * @param controller controller information that specifies the command options.
- * @returns the decorator.
+ * Creates a `Controller` decorator.
+ * @param controller `Controller` information that specifies
+ * the command and its options.
+ *
+ * @returns The decorator used to designate a class a controller.
  */
 export function Controller (controller: ControllerInfo) {
   return (constructor) => {

@@ -5,8 +5,10 @@ import { Constructor } from 'awilix'
 import { View } from '../interfaces/view.interface'
 
 /**
- * Decorates a method, designating it as an action.
- * @param action The action meta information
+ * Creates an `Action` decorator.
+ * @param action `Action` information that specifies the view and which
+ * options this `Action` will handle.
+ * @returns The decorator used to designate a method an action.
  */
 export function Action (action: ActionInfo = DEFAULT_ACTION_INFO) {
   return (target, methodName: string) => {
