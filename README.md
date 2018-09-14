@@ -113,15 +113,18 @@ $ npm run test
 
 ### Documentation
 
-The documentation is built in the docs directory: `cd docs`.
+The documentation is built in the docs directory.
 [Sphinx](https://www.sphinx-doc.org) is used to build the documentation.
 
 ``` bash
+# install dependencies for building docs
+$ pip install -r requirements.txt
+
 # build
-$ make html
+$ make -C docs html
 
 # live reload at localhost:8000
-$ make livehtml
+$ make -C docs livehtml
 ```
 
 
