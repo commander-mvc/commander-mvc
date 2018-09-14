@@ -2,8 +2,7 @@ import { Controller, Action } from 'commander-mvc'
 import { MessageView } from './message.view'
 
 @Controller({
-  command: 'hello [name]',
-  options: []
+  command: 'hello [name]'
 })
 export class HelloController {
   constructor({ helloService }) {
@@ -11,10 +10,9 @@ export class HelloController {
   }
 
   @Action({
-    forOptions: () => true,
     view: MessageView
   })
   sayHello() {
     return this.helloService.sayHello(this.arg)
   }
-}
+}}

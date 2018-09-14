@@ -4,6 +4,10 @@ import { constructorToToken } from '../constructor-to-token'
 import { Constructor } from 'awilix'
 import { View } from '../interfaces/view.interface'
 
+/**
+ * Decorates a method, designating it as an action.
+ * @param action The action meta information
+ */
 export function Action (action: ActionInfo = DEFAULT_ACTION_INFO) {
   return (target, methodName: string) => {
     const token = constructorToToken(target.constructor)

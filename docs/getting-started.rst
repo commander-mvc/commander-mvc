@@ -57,12 +57,20 @@ Now, you will also need to add a ``.babelrc``.
   :caption:
   :linenos:
 
+View
+~~~~~
+
 Next, we will create our view: ``message.view.js``. Create a folder
 called ``src``, and put ``message.view.js`` inside it.
 
 .. literalinclude:: examples/hello/src/message.view.js
   :caption:
   :linenos:
+
+.. note::
+
+  Views must implement the print method. To learn more, see the
+  :doc:`reference/view` section.
 
 Your project directory should now look like this:
 
@@ -73,6 +81,9 @@ Your project directory should now look like this:
   .babelrc
   package-lock.json
   package.json
+
+Service
+~~~~~~~
 
 Now, create a service called ``hello.service.js`` where we will put our
 program's main logic (determining whether we are saying hello to the world or a
@@ -88,8 +99,12 @@ injection (DI) through the constructor.
 
 .. note::
 
-  Technically it is also available to views via DI, but I
-  think the view should just be concerned with printing simple messages.
+  Technically it is also available to views via DI, but I think the view should
+  just be concerned with printing simple messages. To learn more, see the
+  :doc:`reference/injectable` section.
+
+Controller
+~~~~~~~~~~
 
 The ``hello.controlier.js`` which we will be creating next will tie the view
 and service together.
@@ -110,11 +125,13 @@ return value using the ``MessageView`` we created earlier.
 
 .. note::
 
-  The weird ``forOptions`` function is normally used when your controller has
-  multiple actions and each action should only be called when particular
-  options are given. For a given ``options`` object it should return whether or
-  not the action should handle the command. In the future, the ``forOptions``
-  function will be optional if it would just return true anyway.
+  You can specify on the controller options for the command. Then on each
+  action, you can indicate when the controller should route the command to it
+  depending on which options with which the command was invoked. To learn more,
+  see the :doc:`reference/controller` section.
+
+Pulling it together
+~~~~~~~~~~~~~~~~~~~
 
 The last file to create is ``index.js`` which will create the commander-mvc
 context and run our CLI application.
@@ -122,12 +139,6 @@ context and run our CLI application.
 .. literalinclude:: examples/hello/src/index.js
   :caption:
   :linenos:
-
-.. note::
-
-  Commander-mvc provides a default entrypoint. However, there is no way to
-  specify a name and a version without overriding it. In the future, it will
-  be easier to specify a name/version without overriding the default entrypoint.
 
 Finally we can build and install our CLI. First ``cd`` into the root of the
 project, and run the commands:
@@ -141,11 +152,11 @@ Now you can run it like this:
 
 .. code-block:: bash
 
-  $ commander-mvc-hello --help
+  $ commander-mvc-hello --version
   1.0.0
 
   $ commander-mvc-hello --help
-  Usage: index [options] [command]
+  Usage: commander-mvc-hello [options] [command]
 
   Options:
 
@@ -161,3 +172,5 @@ Now you can run it like this:
 
   $ commander-mvc-hello hello Martin
   Hello, Martin!
+
+Congratulations on your first commander-mvc application!
