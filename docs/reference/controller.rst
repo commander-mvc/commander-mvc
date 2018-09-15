@@ -27,14 +27,14 @@ called injectables) through constructor injection.
   ``Action``. It will not be defined at the time the controller is constructed.
 
 Controller Example
-------------------
+~~~~~~~~~~~~~~~~~~
 
 .. literalinclude:: ../examples/fragments/controller.js
   :linenos:
   :lines: 1-13
 
 Action
-~~~~~~
+------
 
 An action in commander-mvc is an endpoint. When your application is invoked
 from the commandline, one of the actions defined throughout it is called.
@@ -45,12 +45,10 @@ from the commandline, one of the actions defined throughout it is called.
   :members:
 
 Action Example
---------------
+~~~~~~~~~~~~~~~
 
 Continuing from the controller example above:
 
 .. literalinclude:: ../examples/fragments/controller.js
   :lineno-start: 15
   :lines: 15-
-
-

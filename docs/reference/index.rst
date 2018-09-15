@@ -6,5 +6,6 @@ Reference
   :caption: Contents:
 
   controller
-  view
   injectable
+  view
+  context

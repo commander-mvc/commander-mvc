@@ -140,6 +140,14 @@ context and run our CLI application.
   :caption:
   :linenos:
 
+.. note:: 
+
+  Behind the scenes, the context brings all of the command and option
+  definitions together to construct the `commander` program definition. The
+  context also uses a default entry point which calls `parse` on the
+  `commander` instance when `run` is called. To learn more see the
+  :doc:`reference/context` section.
+
 Finally we can build and install our CLI. First ``cd`` into the root of the
 project, and run the commands:
 

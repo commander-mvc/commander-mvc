@@ -9,10 +9,17 @@ export function provideAll (injectables) {
   })
 }
 
+/**
+ * Manually provide an injectable.
+ * @param name the name that will be used to resolve the injectable.
+ * @param injectableInfo `Injectable` information that specifies
+ * how the DI framework should create an instance and the lifetime
+ * of that instance.
+ */
 export function provide<T extends Constructor<T>> (
   name: string,
-  injectable: InjectableTableEntry<T>
+  injectableInfo: InjectableTableEntry<T>
 ) {
-  add(name, injectable)
+  add(name, injectableInfo)
   return name
 }
