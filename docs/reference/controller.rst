@@ -3,14 +3,7 @@ Controller
 
 A controller in commander-mvc is meant to act as a glue between the application
 logic and the view. Controllers have access to your application's services (also
-called injectables) through constructor injection. Constructor injection in
-commander-mvc looks like this:
-
-.. code-block:: javascript
-
-  constructor ({ myService }) {
-    this.myService = myService
-  }
+called injectables) through constructor injection.
 
 .. autofunction:: Controller
 
@@ -28,6 +21,18 @@ commander-mvc looks like this:
 .. autoclass:: HasArg
   :members:
 
+.. warning::
+
+  The `arg` property is only properly set during the execution of an
+  ``Action``. It will not be defined at the time the controller is constructed.
+
+Controller Example
+------------------
+
+.. literalinclude:: ../examples/fragments/controller.js
+  :linenos:
+  :lines: 1-13
+
 Action
 ~~~~~~
 
@@ -38,3 +43,14 @@ from the commandline, one of the actions defined throughout it is called.
 
 .. autoclass:: ActionInfo
   :members:
+
+Action Example
+--------------
+
+Continuing from the controller example above:
+
+.. literalinclude:: ../examples/fragments/controller.js
+  :lineno-start: 15
+  :lines: 15-
+
+
