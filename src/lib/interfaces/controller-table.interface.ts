@@ -8,7 +8,7 @@ export interface ControllerTable {
 }
 
 export interface ControllerTableEntry extends ControllerInfo {
-  registerCommand: (cliService: CommanderStatic, instance: any) => void
+  registerCommand: () => void
   actionsForOptions: ForOptionsMethodPair[]
   actionViews: ViewMap
 }

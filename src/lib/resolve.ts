@@ -8,13 +8,5 @@ export function resolve (key: InjectionRegistrationKey): any {
     key = constructorToToken(key)
   }
   const resolved = container.resolve(key)
-  registerCommandIfController(key, resolved)
   return resolved
-}
-
-function registerCommandIfController (token: string, instance) {
-  if (controllerTableContains(token)) {
-    const { registerCommand } = getControllerOptions(token)
-    registerCommand(container.cradle.cliService, instance)
-  }
 }

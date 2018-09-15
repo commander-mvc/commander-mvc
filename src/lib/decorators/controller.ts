@@ -7,6 +7,7 @@ import { wrapAsync } from '../wrap-async'
 import { container } from '../container'
 import { ControllerInfo } from '../interfaces/controller-table.interface'
 import { Options } from '../interfaces/action-info.interface'
+import { CommanderStatic } from 'commander'
 
 /**
  * Creates a `Controller` decorator.
@@ -21,8 +22,8 @@ export function Controller (controller: ControllerInfo) {
     add(token, controller)
     const entry = get(token)
     const { actionsForOptions, actionViews } = entry
-    entry.registerCommand = (cliService, instance: HasArg) => {
-      const command = cliService
+    entry.registerCommand = () => {
+      const command: CommanderStatic = container.cradle.cliService
         .command(controller.command)
       each(controller.options, option => {
         (command as any)
@@ -31,11 +32,12 @@ export function Controller (controller: ControllerInfo) {
       command
         .action(async (...args) => {
           const options: Options = last(args)
+          const controller = container.resolve<HasArg>(token)
           for (const { forOptions, methodName } of actionsForOptions) {
             if (forOptions(options)) {
               await wrapAsync(async () => {
-                instance.arg = first(args)
-                const model = await instance[methodName](options)
+                controller.arg = first(args)
+                const model = await controller[methodName](options)
                 const View = actionViews[methodName]
                 if (View) {
                   const view = new View(container.cradle)
