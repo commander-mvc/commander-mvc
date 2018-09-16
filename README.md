@@ -38,7 +38,7 @@ For a tutorial-like example, checkout the
 
 If you'd like to contribute to the development of this library, be sure to
 checkout the
-[Development](https://towerism.github.io/commander-mvc/contributing.html#Development)
+[Development](https://towerism.github.io/commander-mvc/contributing.html#development)
 section of the docs.
 
 ## Projects using commander-mvc
