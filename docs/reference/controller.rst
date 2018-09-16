@@ -18,11 +18,6 @@ called injectables) through constructor injection.
   See `commander.js <https://www.github.com/tj/commander.js>`_ for more
   information on the constructions of `command` and `option`.
 
-.. note::
-
-  Use the :class:`HasArg` interface when your command takes an argument to help
-  remember what the argument is supposed to be.
-
 .. autoclass:: HasArg
   :members:
 
