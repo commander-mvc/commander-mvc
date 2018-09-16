@@ -15,4 +15,4 @@ export class HelloController {
   sayHello() {
     return this.helloService.sayHello(this.arg)
   }
-}}
+}
