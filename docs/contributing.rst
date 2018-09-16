@@ -5,6 +5,9 @@ Contributions are welcome! This might mean generating issues, contributing to
 feature discussions, fixing up confusing documentation, and more. Your help
 would be greatly appreciated!
 
+- Issue Tracker: `Issues <https://github.com/Towerism/commander-mvc/issues>`_
+- Pull Requests: `Pull Requests <https://github.com/Towerism/commander-mvc/pulls>`_
+
 New Features
 ------------
 
@@ -21,7 +24,16 @@ to make sure no one has already reported it.
 Development
 -----------
 
+Clone the repository:
+
 .. code-block:: bash
+
+  $ git clone git@github.com:towerism/commander-mvc
+
+Build and test with the following commands:
+
+.. code-block:: bash
+
   # build
   $ npm run build
 
