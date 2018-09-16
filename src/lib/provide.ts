@@ -15,6 +15,7 @@ export function provideAll (injectables) {
  * @param injectableInfo `Injectable` information that specifies
  * how the DI framework should create an instance and the lifetime
  * of that instance.
+ * @returns the `name`.
  */
 export function provide<T extends Constructor<T>> (
   name: string,

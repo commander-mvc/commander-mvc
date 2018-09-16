@@ -17,7 +17,7 @@ can be used to resolve an instance using one of a few options. By using the
 .. autoclass:: Provider
   :members:
 
-Injectable Example
+Example
 ~~~~~~~~~~~~~~~~~~
 
 .. literalinclude:: ../examples/fragments/injectable.js
