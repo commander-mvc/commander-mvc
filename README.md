@@ -15,7 +15,9 @@ section of the docs for more information.
 
 ### Warning
 
-This is a work in progress. Contributions are welcome. Be sure to checkout the [CONTRIBUTING guidelines](.github/CONTRIBUTING.md).
+This is a work in progress. Contributions are welcome. Be sure to checkout the
+[Contributing](https://towerism.github.io/commander-mvc/contributing.html)
+section of the docs.
 
 ## Install
 
@@ -23,16 +25,18 @@ This is a work in progress. Contributions are welcome. Be sure to checkout the [
 $ npm install --save commander-mvc
 ```
 
-## Documentation
-
-Go read the [Commander MVC Documentation](https://towerism.github.io/commander-mvc). Built using
-[Sphinx](https://www.sphinx-doc.org) and
-[TypeDoc](https://github.com/TypeStrong/typedoc).
-
 ## Example
 
 For a tutorial-like example, checkout the 
-[Getting Started](https://towerism.github.io/commander-mvc/getting-started.html) section of the docs.
+[Getting Started](https://towerism.github.io/commander-mvc/getting-started.html)
+section of the docs.
+
+## Documentation
+
+Go read the [Commander MVC Documentation](https://towerism.github.io/commander-mvc). Built using
+[Sphinx](https://www.sphinx-doc.org),
+[sphinx-js](https://www.github.com/erikrose/sphinx-js) and
+[TypeDoc](https://github.com/TypeStrong/typedoc).
 
 ## Development
 
