@@ -9,6 +9,8 @@ can be used to resolve an instance using one of a few options. By using the
 
 .. autofunction:: Injectable
 
+.. include:: _initialize-with-context.rst
+
 .. autofunction:: provide
 
 .. autoclass:: InjectableTableEntry

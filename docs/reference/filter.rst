@@ -10,6 +10,8 @@ display an unauthorized message to the user.
 .. autoclass:: ExceptionFilter
   :members:
 
+.. include:: _initialize-with-context.rst
+
 Example
 -------
 

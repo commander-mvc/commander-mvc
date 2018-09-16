@@ -10,6 +10,8 @@ called injectables) through constructor injection.
 
 .. autofunction:: Controller
 
+.. include:: _initialize-with-context.rst
+
 .. autoclass:: ControllerInfo
   :members:
 

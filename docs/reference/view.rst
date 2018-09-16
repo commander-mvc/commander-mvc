@@ -10,6 +10,12 @@ constructor.
 .. autoclass:: View
   :members:
 
+.. note::
+
+  You do not need to include views in :attr:`ContextInitialization.providers`
+  when initializing the context. Just reference the view in the :meth:`Action`
+  decorators that use them.
+
 Example
 -------
 
