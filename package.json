@@ -23,7 +23,7 @@
     "command-line"
   ],
   "author": "Martin Fracker",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/towerism/commander-mvc/issues"
   },
