@@ -6,19 +6,27 @@ import { Controller, Action } from '@app/lib/decorators'
 @Controller({
   command: 'test',
   options: [
-    ['-e, --exception <message>', 'specify exception message']
+    ['-e, --exception <message>', 'specify exception message'],
+    ['-u, --unknown-exception', 'throw an unknown exception']
   ]
 })
 export class ExceptionFilterController {
   @Action({
     forOptions: options => !!options.exception
   })
-  actionOne ({ exception }) {
+  myException ({ exception }) {
     throw new MyException(exception)
   }
 
+  @Action({
+    forOptions: options => !!options.unknownException
+  })
+  unknownException () {
+    throw new Error()
+  }
+
   @Action()
-  actionTwo () {
+  otherException () {
     throw new OtherException()
   }
 }

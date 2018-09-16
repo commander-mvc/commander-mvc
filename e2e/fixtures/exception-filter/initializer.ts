@@ -1,3 +1,4 @@
+import { AnyExceptionFilter } from '@e2e/fixtures/exception-filter/any-exception.filter'
 import { ExceptionFilterController } from './exception-filter.controller'
 import { OtherExceptionFilter } from './other-exception.filter'
 import { initializeContext } from '@app/index'
@@ -8,7 +9,8 @@ export function initializer () {
     providers: [
       ExceptionFilterController,
       MyExceptionFilter,
-      OtherExceptionFilter
+      OtherExceptionFilter,
+      AnyExceptionFilter
     ]
   })
 }

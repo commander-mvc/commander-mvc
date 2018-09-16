@@ -7,16 +7,17 @@ export async function wrapAsync (fn) {
   try {
     await fn()
   } catch (error) {
-    let filtered = false
     for (let { Catches, Filter } of table) {
-      if (error instanceof Catches) {
-        const filter = new Filter(container.cradle)
+      const filter = new Filter(container.cradle)
+      if (!Catches || error instanceof Catches) {
         filter.catch(error)
+        return
       }
-      filtered = true
     }
-    if (!filtered) {
-      console.log(chalk.bold.red(`Unfiltered error: ${inspect(error)}`))
-    }
+    error(`Unfiltered error: ${inspect(error)}`)
   }
+}
+
+function error (message: string) {
+  console.error(chalk.bold.red(message))
 }

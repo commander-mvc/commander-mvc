@@ -10,7 +10,7 @@ import { constructorToToken } from '../constructor-to-token'
  * @returns The decorator used to designate a class as an `Exception Filter`.
  */
 export function Catch<TCtor extends Constructor<ExceptionFilter<any>>, TError extends Constructor<any>>
-  (Exception: TError) {
+  (Exception?: TError) {
   return (constructor: TCtor) => {
     const token = constructorToToken(constructor)
     add(token, { Catches: Exception, Filter: constructor })
