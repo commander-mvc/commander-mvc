@@ -33,6 +33,7 @@ Features
 
 - MVC architecture
 - Dependency injection with singleton and transient lifetimes
+- Use exception filtering to keep exception messages you want to display out of your application logic
 - Ability to easily create a rich, testable, modular CLI
 - Features provided by commander.js such as
 

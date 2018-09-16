@@ -8,4 +8,5 @@ Reference
   controller
   injectable
   view
+  filter
   context
