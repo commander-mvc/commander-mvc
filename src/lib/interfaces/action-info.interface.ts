@@ -15,7 +15,7 @@ export interface ActionInfo {
   /**
    * A function that specifies what options the action should handle.
    * For example, ``({ list, products }) => list && products``, indicates
-   * the action should handle options in which --list and --products
+   * the action should handle options in which ``--list`` and ``--products``
    * are both set. When determining which action commander-mvc will execute,
    * it will visit each one in the order that they are defined. The first
    * (and only the first) action for which ``forOptions(options)`` returns
