@@ -4,7 +4,12 @@ import { Constructor } from 'awilix'
 import { add } from '../filter-table'
 import { constructorToToken } from '../constructor-to-token'
 
-export function Catch<TCtor extends Constructor<ExceptionFilter<any>>, TError extends Constructor<Error>>
+/**
+ * Creates a `Catch` decorator.
+ * @param Exception The exception type to catch.
+ * @returns The decorator used to designate a class as an `Exception Filter`.
+ */
+export function Catch<TCtor extends Constructor<ExceptionFilter<any>>, TError extends Constructor<any>>
   (Exception: TError) {
   return (constructor: TCtor) => {
     const token = constructorToToken(constructor)
