@@ -16,7 +16,7 @@ called injectables) through constructor injection.
   :members:
 
   See `commander.js <https://www.github.com/tj/commander.js>`_ for more
-  information on the construction of `command` and `option`.
+  information on the constructions of `command` and `option`.
 
 .. note::
 
@@ -28,8 +28,8 @@ called injectables) through constructor injection.
 
 .. warning::
 
-  The `arg` property is only properly set during the execution of an
-  ``Action``. It will not be defined at the time the controller is constructed.
+  The :attr:`HasArg.arg` property is only properly set during the execution of an
+  :meth:`Action`. It will not be defined at the time the controller is constructed.
 
 Example
 ~~~~~~~

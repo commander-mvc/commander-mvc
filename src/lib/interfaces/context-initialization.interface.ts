@@ -13,9 +13,9 @@ export interface ContextInitialization {
   entryPoint?: Constructor<Runnable>
 
   /**
-   * List of providers, including all controllers. Providers
-   * listed here will be available for dependency injection
-   * throughout the rest of the program.
+   * List of providers, including all controllers and exception
+   * filters. Providers listed here will be available for
+   * dependency injection throughout the rest of the program.
    */
   providers: InjectionRegistrationKey[]
 

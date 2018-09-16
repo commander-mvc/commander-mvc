@@ -93,7 +93,7 @@ specific person).
   :caption:
   :linenos:
 
-Note the ``Injectable`` decorator. This decorator is what tells commander-mvc
+Note the :meth:`Injectable` decorator. This decorator is what tells commander-mvc
 that our class should be available to our controllers via dependency
 injection (DI) through the constructor.
 
@@ -106,20 +106,20 @@ injection (DI) through the constructor.
 Controller
 ~~~~~~~~~~
 
-The ``hello.controlier.js`` which we will be creating next will tie the view
+The ``hello.controller.js`` which we will be creating next will tie the view
 and service together.
 
 .. literalinclude:: examples/hello/src/hello.controller.js
   :caption:
   :linenos:
 
-The controller is decorated with ``Controller``, which tells commander-mvc to
+The controller is decorated with :meth:`Controller`, which tells commander-mvc to
 route the ``hello`` command to our controller with an optional ``name``
 argument and no additional options. For more information about commands and
 options, see `commander.js <https://www.github.com/tj/commander.js>`_.
 
 The ``sayHello`` method is decorated with
-``Action``, which tells commander-mvc that this method should be called to
+:meth:`Action`, which tells commander-mvc that this method should be called to
 handle those commands routed to our controller, and that it should render the
 return value using the ``MessageView`` we created earlier.
 
