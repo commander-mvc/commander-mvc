@@ -27,3 +27,23 @@ You should use commander-mvc when you want to build a large, complex CLI
 application. One with multiple sub-commands and tons of options. Commander-mvc
 supercharges your application with dependency injection and offers a way to
 breakdown the definition of your CLI into smaller, more easily testable pieces.
+
+Features
+========
+
+- MVC architecture
+- Dependency injection with singleton and transient lifetimes
+- Ability to easily create a rich, testable, modular CLI
+- Features provided by commander.js such as
+
+  - Automated help text
+  - Several argument/option types
+  - Custom option validation/parsing
+  - and more...
+
+Support
+=======
+
+You can help by contributing on `Github
+<https://www.github.com/towerism/commander-mvc>`_. Be sure to checkout the
+guidelines for :doc:`contributing`.

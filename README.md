@@ -31,102 +31,15 @@ Go read the [Commander MVC Documentation](https://towerism.github.io/commander-m
 
 ## Example
 
-For a more tutorial-like example, checkout the 
+For a tutorial-like example, checkout the 
 [Getting Started](https://towerism.github.io/commander-mvc/getting-started.html) section of the docs.
-
-The simplest CLI requires just a controller. This example will
-also use a view in order to keep `console.log` out of the controller.
-
-``` javascript
-// hello.controller.js
-
-@Controller({
-  command: 'hello',
-  options: [
-    ['-n, --name <name>', 'name to use', 'world'],
-  ]
-})
-export class HelloController {
-  @Action({
-    forOptions: () => true,
-    view: HelloView
-  })
-  helloName ({ name }) {
-    return name
-  }
-}
-```
-
-``` javascript
-// hello.view.js
-
-export class HelloView {
-  print (name) {
-    console.log(`Hello, ${name}`)
-  }
-}
-```
-
-``` javascript
-// my-cli.js
-
-const { run } = initializeContext({
-  providers: [
-    HelloController
-  ]
-})
-
-run(process.argv)
-```
-
-Assume you install your app as `my-cli` and it can be run like so:
-
-``` bash
-$ my-cli --help
-Usage: my-cli [options] [command]
-
-Options:
-
-  -V, --version    output the version number
-  -h, --help       output usage information
-
-Commands:
-
-  hello [options]
-
-$ my-cli hello
-Hello, world
-
-$ my-cli hello --name John
-Hello, John
-```
 
 ## Development
 
-``` bash
-# build
-$ npm run build
-
-# test
-$ npm run test
-```
-
-### Documentation
-
-The documentation is built in the docs directory.
-[Sphinx](https://www.sphinx-doc.org) is used to build the documentation.
-
-``` bash
-# install dependencies for building docs
-$ pip install -r requirements.txt
-
-# build
-$ make -C docs html
-
-# live reload at localhost:8000
-$ make -C docs livehtml
-```
-
+If you'd like to contribute to the development of this library, be sure to
+checkout the
+[Development](https://towerism.github.io/commander-mvc/contributing.html#Development)
+section of the docs.
 
 ## Projects using commander-mvc
 

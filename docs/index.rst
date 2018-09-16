@@ -8,6 +8,7 @@ Welcome to commander-mvc's documentation!
    intro
    getting-started
    reference/index
+   contributing
 
 Indices and tables
 ==================
