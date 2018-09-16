@@ -10,7 +10,7 @@ constructor.
 .. autoclass:: View
   :members:
 
-View Example
-~~~~~~~~~~~~
+Example
+-------
 
-.. literalinclude:: ..examples/reference/view.js
+.. literalinclude:: ../examples/fragments/view.js

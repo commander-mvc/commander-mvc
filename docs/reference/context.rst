@@ -1,5 +1,8 @@
+Context and EntryPoint
+======================
+
 Context
-=======
+-------
 
 .. autofunction:: initializeContext
 

@@ -1,5 +1,8 @@
+Controller and Action
+=====================
+
 Controller
-==========
+----------
 
 A controller in commander-mvc is meant to act as a glue between the application
 logic and the view. Controllers have access to your application's services (also
@@ -26,8 +29,8 @@ called injectables) through constructor injection.
   The `arg` property is only properly set during the execution of an
   ``Action``. It will not be defined at the time the controller is constructed.
 
-Controller Example
-~~~~~~~~~~~~~~~~~~
+Example
+~~~~~~~
 
 .. literalinclude:: ../examples/fragments/controller.js
   :linenos:
@@ -44,8 +47,8 @@ from the commandline, one of the actions defined throughout it is called.
 .. autoclass:: ActionInfo
   :members:
 
-Action Example
-~~~~~~~~~~~~~~~
+Example
+~~~~~~~
 
 Continuing from the controller example above:
 
