@@ -10,7 +10,13 @@ display an unauthorized message to the user.
 .. autoclass:: ExceptionFilter
   :members:
 
-.. include:: _initialize-with-context.rst
+.. important::
+
+  If multiple exception filters would catch an exception, only the first one
+  will catch it based on the order the exception filters are given in
+  :attr:`ContextInitialization.providers`. Therefore, when using a catch-all
+  exception filter, it should generally be the last exception filter in
+  :attr:`ContextInitialization.providers`.
 
 Example
 -------
