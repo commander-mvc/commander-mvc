@@ -1,7 +1,7 @@
 import { container } from './container'
 import { asClass, asValue, asFunction } from 'awilix'
-import { get } from './injection-table'
-import { contains as controllerTableContains, get as getControllerEntry } from './controller-table'
+import { getInjectable } from './injection-table'
+import { controllerExists, getController } from './controller-table'
 import { constructorToToken } from './constructor-to-token'
 import { InjectableTableEntry } from './interfaces/injectable-table.interface'
 import { InjectionRegistrationKey } from './interfaces/injection-registration-key'
@@ -10,10 +10,10 @@ export const controllersToResolve: string[] = []
 
 export function registerInjectable (injectable: InjectionRegistrationKey) {
   if (typeof injectable === 'string') {
-    registerInjection(injectable, get(injectable))
+    registerInjection(injectable, getInjectable(injectable))
   } else {
     const token = constructorToToken(injectable)
-    registerInjection(token, get(token))
+    registerInjection(token, getInjectable(token))
   }
 }
 
@@ -25,8 +25,8 @@ function registerInjection (token: string, injection: InjectableTableEntry<any>)
 }
 
 function registerCommandIfController (token: string) {
-  if (controllerTableContains(token)) {
-    const { registerCommand } = getControllerEntry(token)
+  if (controllerExists(token)) {
+    const { registerCommand } = getController(token)
     registerCommand()
   }
 }

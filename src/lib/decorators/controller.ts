@@ -1,5 +1,5 @@
 import { HasArg } from '../interfaces/has-arg.interface'
-import { add, get } from '../controller-table'
+import { addController, getController } from '../controller-table'
 import { constructorToToken } from '../constructor-to-token'
 import { Injectable } from '../decorators/injectable'
 import { first, last, each } from 'lodash'
@@ -19,8 +19,8 @@ import { CommanderStatic } from 'commander'
 export function Controller (controller: ControllerInfo) {
   return (constructor) => {
     const token = constructorToToken(constructor)
-    add(token, controller)
-    const entry = get(token)
+    addController(token, controller)
+    const entry = getController(token)
     const { actionsForOptions, actionViews } = entry
     entry.registerCommand = () => {
       const command: CommanderStatic = container.cradle.cliService

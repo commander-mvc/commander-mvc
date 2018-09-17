@@ -1,4 +1,4 @@
-import { add } from './injection-table'
+import { addInjectable } from './injection-table'
 import { registerInjectable } from './register-injectable'
 import { Constructor } from 'awilix'
 import { InjectableTableEntry } from './interfaces/injectable-table.interface'
@@ -21,6 +21,6 @@ export function provide<T extends Constructor<T>> (
   name: string,
   injectableInfo: InjectableTableEntry<T>
 ) {
-  add(name, injectableInfo)
+  addInjectable(name, injectableInfo)
   return name
 }

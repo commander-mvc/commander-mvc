@@ -3,25 +3,25 @@ import { includes } from 'lodash'
 
 const table: ControllerTable = {} as ControllerTable
 
-export function add (
+export function addController (
   token: string,
   entry: ControllerTableEntry | ControllerInfo = {} as ControllerTableEntry
 ) {
-  if (contains(token)) {
+  if (controllerExists(token)) {
     Object.assign(table[token], entry)
   } else {
     table[token] = newEntry(entry)
   }
 }
 
-export function get (token: string) {
-  if (!contains(token)) {
+export function getController (token: string) {
+  if (!controllerExists(token)) {
     table[token] = newEntry()
   }
   return table[token]
 }
 
-export function contains (token: string) {
+export function controllerExists (token: string) {
   return includes(Object.keys(table), token)
 }
 

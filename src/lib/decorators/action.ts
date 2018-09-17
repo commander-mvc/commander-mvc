@@ -1,5 +1,5 @@
 import { ForOptions, ActionInfo, DEFAULT_ACTION_INFO } from '../interfaces/action-info.interface'
-import { get } from '../controller-table'
+import { getController } from '../controller-table'
 import { constructorToToken } from '../constructor-to-token'
 import { Constructor } from 'awilix'
 import { View } from '../interfaces/view.interface'
@@ -21,11 +21,11 @@ export function Action (action: ActionInfo = DEFAULT_ACTION_INFO) {
 }
 
 function addActionsForOptions (token: string, forOptions: ForOptions, methodName: string) {
-  const { actionsForOptions } = get(token)
+  const { actionsForOptions } = getController(token)
   actionsForOptions.push({ forOptions, methodName })
 }
 
 function addView (token: string, view: Constructor<View>, methodName: string) {
-  const { actionViews } = get(token)
+  const { actionViews } = getController(token)
   actionViews[methodName] = view
 }
