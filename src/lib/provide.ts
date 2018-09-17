@@ -1,4 +1,4 @@
-import { addInjectable } from './injection-table'
+import { addInjectable } from './tables/injection-table'
 import { registerInjectable } from './register-injectable'
 import { Constructor } from 'awilix'
 import { InjectableTableEntry } from './interfaces/injectable-table.interface'

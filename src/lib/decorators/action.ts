@@ -1,5 +1,5 @@
 import { ForOptions, ActionInfo, DEFAULT_ACTION_INFO } from '../interfaces/action-info.interface'
-import { getController } from '../controller-table'
+import { getController } from '../tables/controller-table'
 import { constructorToToken } from '../constructor-to-token'
 import { Constructor } from 'awilix'
 import { View } from '../interfaces/view.interface'

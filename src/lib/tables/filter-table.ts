@@ -1,4 +1,4 @@
-import { FilterTableEntry } from './interfaces'
+import { FilterTableEntry } from '../interfaces'
 
 export const table: FilterTableEntry[] = []
 

@@ -1,4 +1,4 @@
-import { ControllerTable, ControllerTableEntry, ControllerInfo } from './interfaces/controller-table.interface'
+import { ControllerTable, ControllerTableEntry, ControllerInfo } from '../interfaces/controller-table.interface'
 import { includes } from 'lodash'
 
 const table: ControllerTable = {} as ControllerTable

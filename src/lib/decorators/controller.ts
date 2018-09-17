@@ -1,9 +1,9 @@
 import { HasArg } from '../interfaces/has-arg.interface'
-import { addController, getController } from '../controller-table'
+import { addController, getController } from '../tables/controller-table'
 import { constructorToToken } from '../constructor-to-token'
 import { Injectable } from '../decorators/injectable'
 import { first, last, each } from 'lodash'
-import { wrapAsync } from '../wrap-async'
+import { filterExceptions } from '../filter-exceptions'
 import { container } from '../container'
 import { ControllerInfo } from '../interfaces/controller-table.interface'
 import { Options } from '../interfaces/action-info.interface'
@@ -35,7 +35,7 @@ export function Controller (controller: ControllerInfo) {
           const controller = container.resolve<HasArg>(token)
           for (const { forOptions, methodName } of actionsForOptions) {
             if (forOptions(options)) {
-              await wrapAsync(async () => {
+              await filterExceptions(async () => {
                 controller.arg = first(args)
                 const model = await controller[methodName](options)
                 const View = actionViews[methodName]

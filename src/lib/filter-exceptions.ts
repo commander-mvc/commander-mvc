@@ -1,9 +1,9 @@
 import chalk from 'chalk'
-import { table } from './filter-table'
+import { table } from './tables/filter-table'
 import { container } from './container'
 import { inspect } from 'util'
 
-export async function wrapAsync (fn) {
+export async function filterExceptions (fn) {
   try {
     await fn()
   } catch (error) {

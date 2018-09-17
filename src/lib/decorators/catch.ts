@@ -1,7 +1,7 @@
 import { Injectable } from '../decorators/injectable'
 import { ExceptionFilter } from './../interfaces/exception-filter.interface'
 import { Constructor } from 'awilix'
-import { addFilter } from '../filter-table'
+import { addFilter } from '../tables/filter-table'
 import { constructorToToken } from '../constructor-to-token'
 
 /**
@@ -11,7 +11,7 @@ import { constructorToToken } from '../constructor-to-token'
  * @returns The decorator used to designate a class as an `Exception Filter`.
  */
 export function Catch<TCtor extends Constructor<ExceptionFilter<any>>, TError extends Constructor<any>>
-  (Exception: TError | undefined) {
+  (Exception: TError | undefined = undefined) {
   return (constructor: TCtor) => {
     const token = constructorToToken(constructor)
     addFilter(token, { Catches: Exception, Filter: constructor })
