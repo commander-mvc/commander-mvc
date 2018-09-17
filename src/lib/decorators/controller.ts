@@ -5,9 +5,10 @@ import { Injectable } from '../decorators/injectable'
 import { first, last, each } from 'lodash'
 import { filterExceptions } from '../filter-exceptions'
 import { container } from '../container'
-import { ControllerInfo } from '../interfaces/controller-table.interface'
+import { ControllerInfo, ViewMap, ControllerTableEntry, ForOptionsMethodPair } from '../interfaces/controller-table.interface'
 import { Options } from '../interfaces/action-info.interface'
 import { CommanderStatic } from 'commander'
+import { createActionHandler } from '@app/lib/create-action-handler'
 
 /**
  * Creates a `Controller` decorator.
@@ -19,36 +20,44 @@ import { CommanderStatic } from 'commander'
 export function Controller (controller: ControllerInfo) {
   return (constructor) => {
     const token = constructorToToken(constructor)
-    addController(token, controller)
-    const entry = getController(token)
+    const entry = addController(token, controller)
     const { actionsForOptions, actionViews } = entry
-    entry.registerCommand = () => {
-      const command: CommanderStatic = container.cradle.cliService
-        .command(controller.command)
-      each(controller.options, option => {
-        (command as any)
-          .option(...option)
-      })
-      command
-        .action(async (...args) => {
-          const options: Options = last(args)
-          const controller = container.resolve<HasArg>(token)
-          for (const { forOptions, methodName } of actionsForOptions) {
-            if (forOptions(options)) {
-              await filterExceptions(async () => {
-                controller.arg = first(args)
-                const model = await controller[methodName](options)
-                const View = actionViews[methodName]
-                if (View) {
-                  const view = new View(container.cradle)
-                  view.print(model)
-                }
-              })
-              break
-            }
-          }
-        })
-    }
+    registerCommand({ entry, token, actionsForOptions, actionViews })
     Injectable()(constructor)
   }
+}
+
+function registerCommand ({ entry, token, actionsForOptions, actionViews }: {
+  entry: ControllerTableEntry,
+  token: string,
+  actionsForOptions: ForOptionsMethodPair[],
+  actionViews: ViewMap
+}) {
+  entry.registerCommand = () => {
+    const command: CommanderStatic = container.cradle.cliService
+      .command(entry.command)
+    registerCommandOptions({ entry, command })
+    registerCommandAction({ command, token, actionsForOptions, actionViews })
+  }
+}
+
+function registerCommandOptions ({ entry, command }: {
+  entry: ControllerTableEntry, command: any
+}) {
+  each(entry.options, option => {
+    command
+      .option(...option)
+  })
+}
+
+function registerCommandAction ({ command, token, actionsForOptions, actionViews }: {
+  command: any
+  token: string,
+  actionsForOptions: ForOptionsMethodPair[],
+  actionViews: ViewMap
+}) {
+  command
+    .action(createActionHandler({
+      actionsForOptions, actionViews, token
+    }))
 }

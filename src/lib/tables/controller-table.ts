@@ -12,6 +12,7 @@ export function addController (
   } else {
     table[token] = newEntry(entry)
   }
+  return table[token]
 }
 
 export function getController (token: string) {
