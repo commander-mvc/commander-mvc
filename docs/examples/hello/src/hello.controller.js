@@ -9,10 +9,14 @@ export class HelloController {
     this.helloService = helloService
   }
 
+  takeArg(name) {
+    this.name = name
+  }
+
   @Action({
     view: MessageView
   })
   sayHello() {
-    return this.helloService.sayHello(this.arg)
+    return this.helloService.sayHello(this.name)
   }
 }

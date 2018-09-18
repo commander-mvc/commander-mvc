@@ -12,6 +12,6 @@
     "@babel/plugin-proposal-decorators": "^7.0.0",
     "@babel/polyfill": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
-    "commander-mvc": "^1.2.0"
+    "commander-mvc": "^1.3.1"
   }
 }
