@@ -34,4 +34,5 @@ describe('argument with switches', () => {
 async function testOption (option: string) {
   await runProgram(initializer(), 'test', arg, `--${option}`)
   expect(service.do).toHaveBeenCalledWith(`${arg} ${option}`)
+  expect(service.do).toHaveBeenCalledWith(`takeArg: ${arg} ${option}`)
 }

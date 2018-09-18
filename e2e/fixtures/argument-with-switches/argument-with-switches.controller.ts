@@ -1,5 +1,6 @@
 import { HasArg } from '@app/lib/interfaces/has-arg.interface'
 import { Controller, Action } from '@app/lib/decorators'
+import { TakeArg } from '@app/lib/interfaces'
 
 @Controller({
   command: 'test <arg>',
@@ -8,12 +9,17 @@ import { Controller, Action } from '@app/lib/decorators'
     ['-t, --two', 'switch 2']
   ]
 })
-export class ArgumentWithSwitchesController implements HasArg {
+export class ArgumentWithSwitchesController implements HasArg, TakeArg {
   private _service
   arg: string
+  myArg: string
 
   constructor ({ service }) {
     this._service = service
+  }
+
+  takeArg (myArg: string) {
+    this.myArg = 'takeArg: ' + myArg
   }
 
   @Action({
@@ -32,5 +38,6 @@ export class ArgumentWithSwitchesController implements HasArg {
 
   private doArg (option: string) {
     this._service.do(`${this.arg} ${option}`)
+    this._service.do(`${this.myArg} ${option}`)
   }
 }

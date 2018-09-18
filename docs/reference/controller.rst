@@ -18,13 +18,11 @@ called injectables) through constructor injection.
   See `commander.js <https://www.github.com/tj/commander.js>`_ for more
   information on the constructions of `command` and `option`.
 
-.. autoclass:: HasArg
+.. autoclass:: TakeArg
   :members:
 
-.. warning::
-
-  The :attr:`HasArg.arg` property is only properly set during the execution of an
-  :meth:`Action`. It will not be defined at the time the controller is constructed.
+.. autoclass:: HasArg
+  :members:
 
 Example
 ~~~~~~~

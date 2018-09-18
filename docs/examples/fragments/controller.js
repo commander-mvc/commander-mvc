@@ -12,6 +12,10 @@ export class AccountController {
     this.configService = configService
   }
 
+  takeArg(budgetId) {
+    this.budgetId = budgetId || this.configService.activeBudgetId
+  }
+
   @Action({
     forOptions: options => options.list,
     view: AccountsView
@@ -30,7 +34,6 @@ export class AccountController {
   }
 
   getAccounts () {
-    const budgetId = this.arg || this.configService.activeBudgetId
-    return this.accountService.getAll(budgetId)
+    return this.accountService.getAll(this.budgetId)
   }
 }

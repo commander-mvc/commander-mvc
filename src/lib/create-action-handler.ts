@@ -1,5 +1,4 @@
-import { ForOptionsMethodPair, ViewMap } from './interfaces/controller-table.interface'
-import { HasArg } from './interfaces/has-arg.interface'
+import { TakeArg, ForOptionsMethodPair, ViewMap, HasArg } from './interfaces'
 import { container } from './container'
 import { Options } from './interfaces/action-info.interface'
 import { filterExceptions } from './filter-exceptions'
@@ -12,11 +11,15 @@ export function createActionHandler ({ token, actionsForOptions, actionViews }: 
 }) {
   return async (...args: any[]) => {
     const options: Options = last(args)
-    const controller = container.resolve<HasArg>(token)
+    const controller = container.resolve<HasArg & TakeArg>(token)
+    const arg = first(args)
+    if (controller.takeArg) {
+      controller.takeArg(arg)
+    }
+    controller.arg = arg
     for (const { forOptions, methodName } of actionsForOptions) {
       if (forOptions(options)) {
         await filterExceptions(async () => {
-          controller.arg = first(args)
           const model = await controller[methodName](options)
           const View = actionViews[methodName]
           if (View) {
