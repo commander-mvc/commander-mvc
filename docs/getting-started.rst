@@ -49,7 +49,7 @@ Setup the ``package.json`` so that it looks like below. The important fields to 
 
   Some of these snippets (like the one above) are captioned with filenames such
   that you can find them in the docs directory of the main `repository
-  <https://github.com/Towerism/commander-mvc/tree/develop/docs/examples/hello>`_.
+  <https://github.com/commander-mvc/commander-mvc/tree/develop/docs/examples/hello>`_.
 
 Now, you will also need to add a ``.babelrc``.
 

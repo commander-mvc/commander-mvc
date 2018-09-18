@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Towerism/commander-mvc.git"
+    "url": "https://github.com/commander-mvc/commander-mvc.git"
   },
   "keywords": [
     "commander",
@@ -25,9 +25,9 @@
   "author": "Martin Fracker",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/towerism/commander-mvc/issues"
+    "url": "https://github.com/commander-mvc/commander-mvc/issues"
   },
-  "homepage": "https://github.com/towerism/commander-mvc#readme",
+  "homepage": "https://github.com/commander-mvc/commander-mvc#readme",
   "dependencies": {
     "awilix": "^3.0.9",
     "chalk": "^2.4.1",

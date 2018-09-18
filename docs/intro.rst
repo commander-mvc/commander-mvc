@@ -47,5 +47,5 @@ Support
 =======
 
 You can help by contributing on `Github
-<https://www.github.com/towerism/commander-mvc>`_. Be sure to checkout the
+<https://www.github.com/commander-mvc/commander-mvc>`_. Be sure to checkout the
 guidelines for :doc:`contributing`.
