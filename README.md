@@ -10,13 +10,13 @@ Commander-mvc is a wrapper around the popular commandline argument parser and
 action dispactcher, [commander.js](https://www.github.com/tj/commander.js).
 It allows you to develop elegant user interfaces using an out-of-the-box
 model-view-controller architecture. See the
-[Introduction](https://commander-mvc.github.io/intro.html)
+[Introduction](https://commander-mvc.github.io/commander-mvc/intro.html)
 section of the docs for more information.
 
 ### Warning
 
 This is a work in progress. Contributions are welcome. Be sure to checkout the
-[Contributing](https://commander-mvc.github.io/contributing.html)
+[Contributing](https://commander-mvc.github.io/commander-mvc/contributing.html)
 section of the docs.
 
 ## Install
@@ -28,7 +28,7 @@ $ npm install --save commander-mvc
 ## Example
 
 For a tutorial-like example, checkout the 
-[Getting Started](https://commander-mvc.github.io/getting-started.html)
+[Getting Started](https://commander-mvc.github.io/commander-mvc/getting-started.html)
 section of the docs.
 
 ## Documentation
