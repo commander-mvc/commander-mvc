@@ -22,7 +22,7 @@ export interface ActionInfo {
    * true will be executed. If omitted, it will be always executed when
    * visited commander-mvc.
    */
-  forOptions: ForOptions
+  forOptions?: ForOptions
 }
 
 export const DEFAULT_ACTION_INFO = { forOptions: () => true }

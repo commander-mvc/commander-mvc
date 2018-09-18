@@ -1,4 +1,4 @@
-import { HasArg } from '@app/lib/interfaces/has-arg.interface'
+import { HasArg } from '@app/lib/interfaces'
 import { Controller, Action } from '@app/lib/decorators'
 
 @Controller({

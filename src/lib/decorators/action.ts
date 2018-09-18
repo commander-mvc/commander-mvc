@@ -11,9 +11,10 @@ import { View } from '../interfaces/view.interface'
  * @returns The decorator used to designate a method an action.
  */
 export function Action (action: ActionInfo = DEFAULT_ACTION_INFO) {
+  let forOptions = action.forOptions || DEFAULT_ACTION_INFO.forOptions
   return (target, methodName: string) => {
     const token = constructorToToken(target.constructor)
-    addActionsForOptions(token, action.forOptions, methodName)
+    addActionsForOptions(token, forOptions, methodName)
     if (action.view) {
       addView(token, action.view, methodName)
     }

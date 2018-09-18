@@ -31,6 +31,11 @@ describe('controller without options', () => {
     expect(service.do).toHaveBeenCalledWith(arg)
   })
 
+  test('works with view', async () => {
+    await runProgram(initializer(), 'test-with-view')
+    expect(service.do).toHaveBeenCalledWith('')
+  })
+
   test('--help/--version', async () => {
     await runProgram(initializer(programInfo), '--help')
     await runProgram(initializer(programInfo), '--version')
