@@ -44,7 +44,7 @@ Documentation
 ~~~~~~~~~~~~~
 
 The documentation is built in the docs directory.
-[Sphinx](https://www.sphinx-doc.org) is used to build the documentation.
+`Sphinx <https://www.sphinx-doc.org>`_ is used to build the documentation.
 
 .. code-block:: bash
 
