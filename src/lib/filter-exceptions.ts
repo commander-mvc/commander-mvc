@@ -2,6 +2,7 @@ import chalk from 'chalk'
 import { table } from './tables/filter-table'
 import { container } from './container'
 import { inspect } from 'util'
+import { printError } from './print-error'
 
 export async function filterExceptions (fn) {
   try {
@@ -14,10 +15,6 @@ export async function filterExceptions (fn) {
         return
       }
     }
-    error(`Unfiltered error: ${inspect(error)}`)
+    printError(`Unfiltered error: ${inspect(error)}`)
   }
-}
-
-function error (message: string) {
-  console.error(chalk.bold.red(message))
 }
