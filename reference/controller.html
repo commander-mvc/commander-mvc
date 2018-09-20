@@ -1,0 +1,492 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Controller and Action &mdash; commander-mvc 1.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Injectable" href="injectable.html" />
+    <link rel="prev" title="Reference" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> commander-mvc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Controller and Action</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#controller">Controller</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#action">Action</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="injectable.html">Injectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view.html">View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter.html">Exception Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Context and EntryPoint</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">commander-mvc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Reference</a> &raquo;</li>
+        
+      <li>Controller and Action</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/reference/controller.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="controller-and-action">
+<h1>Controller and Action<a class="headerlink" href="#controller-and-action" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="controller">
+<h2>Controller<a class="headerlink" href="#controller" title="Permalink to this headline">¶</a></h2>
+<p>A controller in commander-mvc is meant to act as a glue between the application
+logic and the view. Controllers have access to your application’s services (also
+called injectables) through constructor injection.</p>
+<dl class="function">
+<dt id="Controller">
+<code class="descname">Controller</code><span class="sig-paren">(</span><em>controller</em><span class="sig-paren">)</span><a class="headerlink" href="#Controller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a <cite>Controller</cite> decorator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>controller</strong> (<a class="reference internal" href="#ControllerInfo" title="ControllerInfo"><em>ControllerInfo</em></a>) – <cite>Controller</cite> information that specifies the command and its options.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>(Anonymous function)</strong> – The decorator used to designate a class a controller.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">In order to be recognized by the context, it must be included in
+<a class="reference internal" href="context.html#ContextInitialization.providers" title="ContextInitialization.providers"><code class="xref js js-attr docutils literal notranslate"><span class="pre">ContextInitialization.providers</span></code></a>.</p>
+</div>
+<dl class="class">
+<dt id="ControllerInfo">
+<em class="property">class </em><code class="descname">ControllerInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ControllerInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>interface</em>, <em>exported from</em> <code class="xref js js-mod docutils literal notranslate"><span class="pre">ommander-mv</span></code></p>
+<p>Meta information for a controller.</p>
+<p>See <a class="reference external" href="https://www.github.com/tj/commander.js">commander.js</a> for more
+information on the constructions of <cite>command</cite> and <cite>option</cite>.</p>
+<dl class="attribute">
+<dt id="ControllerInfo.command">
+<code class="descclassname">ControllerInfo.</code><code class="descname">command</code><a class="headerlink" href="#ControllerInfo.command" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> string</p>
+<p>A standard commander.js command that optionally specifies an argument.
+An argument in <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> braces indicates it is required, while <code class="docutils literal notranslate"><span class="pre">[]</span></code>
+indicates it is optional. Within in action, the argument is accessed
+with <code class="docutils literal notranslate"><span class="pre">this.arg</span></code>.</p>
+<dl class="docutils">
+<dt>Examples:</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">&lt;dir&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">[dir]</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">list</span></code></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ControllerInfo.options">
+<code class="descclassname">ControllerInfo.</code><code class="descname">options</code><a class="headerlink" href="#ControllerInfo.options" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> OptionDefinition[]</p>
+<p>An array of option definitions. Each option definition is itself
+an array that will be used as the arguments to create a commander.js
+option.</p>
+<dl class="docutils">
+<dt>Example:</dt>
+<dd><code class="docutils literal notranslate"><span class="pre">[['-l,</span> <span class="pre">--list',</span> <span class="pre">'list</span> <span class="pre">objects'],</span> <span class="pre">['-s,</span> <span class="pre">--silent',</span> <span class="pre">'be</span> <span class="pre">quiet']]</span></code></dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="TakeArg">
+<em class="property">class </em><code class="descname">TakeArg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#TakeArg" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>interface</em>, <em>exported from</em> <code class="xref js js-mod docutils literal notranslate"><span class="pre">ommander-mv</span></code></p>
+<p>Intended to be used on a controller. Use this
+interface when you need the <cite>takeArg</cite> method.</p>
+<dl class="function">
+<dt id="TakeArg.takeArg">
+<code class="descclassname">TakeArg.</code><code class="descname">takeArg</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#TakeArg.takeArg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Called when a command is given and it takes an argument.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>arg</strong> (<em>any</em>) – The argument given to the command.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="HasArg">
+<em class="property">class </em><code class="descname">HasArg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#HasArg" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>interface</em>, <em>exported from</em> <code class="xref js js-mod docutils literal notranslate"><span class="pre">ommander-mv</span></code></p>
+<p>DEPRECATED. Use <a class="reference internal" href="#TakeArg" title="TakeArg"><code class="xref js js-class docutils literal notranslate"><span class="pre">TakeArg()</span></code></a> instead.</p>
+<p>Intended to be used on a controller. Use this
+interface when you need the <cite>arg</cite> property.</p>
+<dl class="attribute">
+<dt id="HasArg.arg">
+<code class="descclassname">HasArg.</code><code class="descname">arg</code><a class="headerlink" href="#HasArg.arg" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> any</p>
+<p>The argument given to the command.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Controller</span><span class="p">({</span>
+  <span class="n">command</span><span class="p">:</span> <span class="s1">&#39;account [budgetId]&#39;</span><span class="p">,</span>
+  <span class="n">options</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;-l, --list&#39;</span><span class="p">,</span> <span class="s1">&#39;list account balances&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;-m&#39;</span><span class="p">,</span> <span class="s1">&#39;--email &lt;address&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;send account balances to the email address&#39;</span><span class="p">]</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">AccountController</span> <span class="p">{</span>
+  <span class="n">constructor</span><span class="p">({</span> <span class="n">accountService</span><span class="p">,</span> <span class="n">emailService</span><span class="p">,</span> <span class="n">configService</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">accountService</span> <span class="o">=</span> <span class="n">accountService</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">emailService</span> <span class="o">=</span> <span class="n">emailService</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">configService</span> <span class="o">=</span> <span class="n">configService</span>
+  <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="action">
+<h2>Action<a class="headerlink" href="#action" title="Permalink to this headline">¶</a></h2>
+<p>An action in commander-mvc is an endpoint. When your application is invoked
+from the commandline, one of the actions defined throughout it is called.</p>
+<dl class="function">
+<dt id="Action">
+<code class="descname">Action</code><span class="sig-paren">(</span><em>action</em><span class="sig-paren">)</span><a class="headerlink" href="#Action" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an <cite>Action</cite> decorator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>action</strong> (<a class="reference internal" href="#ActionInfo" title="ActionInfo"><em>ActionInfo</em></a>) – <cite>Action</cite> information that specifies the view and which options this <cite>Action</cite> will handle.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>(Anonymous function)</strong> – The decorator used to designate a method an action.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ActionInfo">
+<em class="property">class </em><code class="descname">ActionInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ActionInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>interface</em>, <em>exported from</em> <code class="xref js js-mod docutils literal notranslate"><span class="pre">ommander-mv</span></code></p>
+<p>Meta information for an action</p>
+<dl class="attribute">
+<dt id="ActionInfo.forOptions">
+<code class="descclassname">ActionInfo.</code><code class="descname">forOptions</code><a class="headerlink" href="#ActionInfo.forOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> ForOptions</p>
+<p>A function that specifies what options the action should handle.
+For example, <code class="docutils literal notranslate"><span class="pre">({</span> <span class="pre">list,</span> <span class="pre">products</span> <span class="pre">})</span> <span class="pre">=&gt;</span> <span class="pre">list</span> <span class="pre">&amp;&amp;</span> <span class="pre">products</span></code>, indicates
+the action should handle options in which <code class="docutils literal notranslate"><span class="pre">--list</span></code> and <code class="docutils literal notranslate"><span class="pre">--products</span></code>
+are both set. When determining which action commander-mvc will execute,
+it will visit each one in the order that they are defined. The first
+(and only the first) action for which <code class="docutils literal notranslate"><span class="pre">forOptions(options)</span></code> returns
+true will be executed. If omitted, it will be always executed when
+visited commander-mvc.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ActionInfo.view">
+<code class="descclassname">ActionInfo.</code><code class="descname">view</code><a class="headerlink" href="#ActionInfo.view" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> Constructor</p>
+<p>Constructor for the view that will render the result of the action.
+The return value of the action will be used the as the model and
+passed to the <code class="docutils literal notranslate"><span class="pre">print</span></code> method of the view.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="id1">
+<h3>Example<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Continuing from the controller example above:</p>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="n">takeArg</span><span class="p">(</span><span class="n">budgetId</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">budgetId</span> <span class="o">=</span> <span class="n">budgetId</span> <span class="o">||</span> <span class="n">this</span><span class="o">.</span><span class="n">configService</span><span class="o">.</span><span class="n">activeBudgetId</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Action</span><span class="p">({</span>
+    <span class="n">forOptions</span><span class="p">:</span> <span class="n">options</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">.</span><span class="n">list</span><span class="p">,</span>
+    <span class="n">view</span><span class="p">:</span> <span class="n">AccountsView</span>
+  <span class="p">})</span>
+  <span class="nb">list</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">getAccounts</span><span class="p">()</span>
+  <span class="p">}</span>
+
+  <span class="nd">@Action</span><span class="p">({</span>
+    <span class="n">forOptions</span><span class="p">:</span> <span class="n">options</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">.</span><span class="n">email</span><span class="p">,</span>
+    <span class="n">view</span><span class="p">:</span> <span class="n">ResultView</span>
+  <span class="p">})</span>
+  <span class="n">sendEmail</span> <span class="p">({</span> <span class="n">email</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="n">const</span> <span class="n">accounts</span> <span class="o">=</span> <span class="n">this</span><span class="o">.</span><span class="n">getAccounts</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">emailService</span><span class="o">.</span><span class="n">sendAccounts</span><span class="p">(</span><span class="n">accounts</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+  <span class="p">}</span>
+
+  <span class="n">getAccounts</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">accountService</span><span class="o">.</span><span class="n">getAll</span><span class="p">(</span><span class="n">this</span><span class="o">.</span><span class="n">budgetId</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="injectable.html" class="btn btn-neutral float-right" title="Injectable" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martin Fracker.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.2',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

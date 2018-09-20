@@ -1,0 +1,393 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Injectable &mdash; commander-mvc 1.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="View" href="view.html" />
+    <link rel="prev" title="Controller and Action" href="controller.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> commander-mvc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="controller.html">Controller and Action</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Injectable</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="view.html">View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter.html">Exception Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="context.html">Context and EntryPoint</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">commander-mvc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Reference</a> &raquo;</li>
+        
+      <li>Injectable</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/reference/injectable.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="injectable">
+<h1>Injectable<a class="headerlink" href="#injectable" title="Permalink to this headline">¶</a></h1>
+<p>There are two ways to create an injectable: either be using the
+<a class="reference internal" href="#Injectable" title="Injectable"><code class="xref js js-meth docutils literal notranslate"><span class="pre">Injectable()</span></code></a> decorator, or by calling <a class="reference internal" href="#provide" title="provide"><code class="xref js js-meth docutils literal notranslate"><span class="pre">provide()</span></code></a>. A provider
+can be used to resolve an instance using one of a few options. By using the
+<cite>Injectable</cite> decorator, the DI framework will automatically choose the
+<cite>useConstructor</cite> option. If you need more flexibility, you can use <cite>provide</cite>.</p>
+<dl class="function">
+<dt id="Injectable">
+<code class="descname">Injectable</code><span class="sig-paren">(</span><em>injectableInfo</em><span class="sig-paren">)</span><a class="headerlink" href="#Injectable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an <cite>Injectable</cite> decorator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>injectableInfo</strong> (<a class="reference internal" href="#InjectableTableEntry" title="InjectableTableEntry"><em>InjectableTableEntry</em></a>) – <cite>Injectable</cite> information that specifies how the DI framework should create an instance and the lifetime of that instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>(Anonymous function)</strong> – The decorator used to designate a class an injectable resolution. The decorator will automatically create a <code class="docutils literal notranslate"><span class="pre">useClass</span></code> provider. The provider will use the class’ name in camelCase for resolving.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">In order to be recognized by the context, it must be included in
+<a class="reference internal" href="context.html#ContextInitialization.providers" title="ContextInitialization.providers"><code class="xref js js-attr docutils literal notranslate"><span class="pre">ContextInitialization.providers</span></code></a>.</p>
+</div>
+<dl class="function">
+<dt id="provide">
+<code class="descname">provide</code><span class="sig-paren">(</span><em>name</em>, <em>injectableInfo</em><span class="sig-paren">)</span><a class="headerlink" href="#provide" title="Permalink to this definition">¶</a></dt>
+<dd><p>Manually provide an injectable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>name</strong> (<em>string</em>) – the name that will be used to resolve the injectable.</li>
+<li><strong>injectableInfo</strong> (<a class="reference internal" href="#InjectableTableEntry" title="InjectableTableEntry"><em>InjectableTableEntry</em></a>) – <cite>Injectable</cite> information that specifies how the DI framework should create an instance and the lifetime of that instance.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>string</strong> – the <cite>name</cite>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="InjectableTableEntry">
+<em class="property">class </em><code class="descname">InjectableTableEntry</code><span class="sig-paren">(</span><em>T</em><span class="sig-paren">)</span><a class="headerlink" href="#InjectableTableEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>interface</em>, <em>exported from</em> <code class="xref js js-mod docutils literal notranslate"><span class="pre">ommander-mv</span></code></p>
+<p>Meta information for an <cite>Injectable</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>T</strong> – The type being being provided.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="InjectableTableEntry.lifetime">
+<code class="descclassname">InjectableTableEntry.</code><code class="descname">lifetime</code><a class="headerlink" href="#InjectableTableEntry.lifetime" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> LifetimeType</p>
+<p>Either <code class="docutils literal notranslate"><span class="pre">SINGLETON</span></code> or <code class="docutils literal notranslate"><span class="pre">TRANSIENT</span></code>. In the former, only
+one instance will be resolved and cached for future resolves.
+In the latter, a new instance will be created each time it is
+resolved. Note this only affects a <code class="docutils literal notranslate"><span class="pre">useConstructor</span></code> provider.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="InjectableTableEntry.provider">
+<code class="descclassname">InjectableTableEntry.</code><code class="descname">provider</code><a class="headerlink" href="#InjectableTableEntry.provider" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> Provider</p>
+<p>Describes how the DI framework should create an instance during
+resolution.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="Provider">
+<em class="property">class </em><code class="descname">Provider</code><span class="sig-paren">(</span><em>T</em><span class="sig-paren">)</span><a class="headerlink" href="#Provider" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>interface</em>, <em>exported from</em> <code class="xref js js-mod docutils literal notranslate"><span class="pre">ommander-mv</span></code></p>
+<p>Describes how the DI framework should create an instance during
+resolution. Only one of the options should be used. The behavior
+is not well-defined if more than one is used and can change in
+a future release.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>T</strong> – The type being provided</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="attribute">
+<dt id="Provider.useConstructor">
+<code class="descclassname">Provider.</code><code class="descname">useConstructor</code><a class="headerlink" href="#Provider.useConstructor" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> Constructor</p>
+<p>The class given will be created and resolved using <code class="docutils literal notranslate"><span class="pre">new</span></code>.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Provider.useFactory">
+<code class="descclassname">Provider.</code><code class="descname">useFactory</code><a class="headerlink" href="#Provider.useFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> AnyFunction</p>
+<p>The factory function given will be called, and the return value
+will be resolved. Dependencies can be injected into the function’s
+parameters just like constructor injection.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Provider.useValue">
+<code class="descclassname">Provider.</code><code class="descname">useValue</code><a class="headerlink" href="#Provider.useValue" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> any</p>
+<p>The value given will be resolved as is.</p>
+</dd></dl>
+
+</dd></dl>
+
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@Injectable</span><span class="p">({</span>
+  <span class="n">lifetime</span><span class="p">:</span> <span class="n">Lifetime</span><span class="o">.</span><span class="n">SINGLETON</span>
+<span class="p">})</span> 
+<span class="n">export</span> <span class="k">class</span> <span class="nc">MyService</span> <span class="p">{</span>
+  <span class="n">constructor</span> <span class="p">({</span> <span class="n">apiUrl</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">apiUrl</span> <span class="o">=</span> <span class="n">apiUrl</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">provide</span><span class="p">(</span><span class="s1">&#39;apiUrl&#39;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">useValue</span><span class="p">:</span> <span class="s1">&#39;api.site.com/v1/&#39;</span>
+<span class="p">})</span>
+</pre></div>
+</td></tr></table></div>
+<p>As you can see, injectables themselves can inject other injectables. The
+example also shows a custom provider.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="view.html" class="btn btn-neutral float-right" title="View" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="controller.html" class="btn btn-neutral" title="Controller and Action" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martin Fracker.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.2',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Context and EntryPoint &mdash; commander-mvc 1.0.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="../contributing.html" />
+    <link rel="prev" title="Exception Filter" href="filter.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> commander-mvc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="controller.html">Controller and Action</a></li>
+<li class="toctree-l2"><a class="reference internal" href="injectable.html">Injectable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view.html">View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filter.html">Exception Filter</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Context and EntryPoint</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#context">Context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#entrypoint">EntryPoint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">commander-mvc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Reference</a> &raquo;</li>
+        
+      <li>Context and EntryPoint</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/reference/context.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="context-and-entrypoint">
+<h1>Context and EntryPoint<a class="headerlink" href="#context-and-entrypoint" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="context">
+<h2>Context<a class="headerlink" href="#context" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="initializeContext">
+<code class="descname">initializeContext</code><span class="sig-paren">(</span><em>contextInfo</em><span class="sig-paren">)</span><a class="headerlink" href="#initializeContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes the context used to create the application in.
+This includes a custom entrypoint, list of providers, and if a custom
+entryPoint is not provided the name and version of the program.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>contextInfo</strong> (<a class="reference internal" href="#ContextInitialization" title="ContextInitialization"><em>ContextInitialization</em></a>) – Info used to initialize the context with.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>Runnable</strong> – The <cite>EntryPoint</cite> with which to run the program.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ContextInitialization">
+<em class="property">class </em><code class="descname">ContextInitialization</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ContextInitialization" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>interface</em>, <em>exported from</em> <code class="xref js js-mod docutils literal notranslate"><span class="pre">ommander-mv</span></code></p>
+<p>Info used when initializing the context in which the
+program will run.</p>
+<dl class="attribute">
+<dt id="ContextInitialization.entryPoint">
+<code class="descclassname">ContextInitialization.</code><code class="descname">entryPoint</code><a class="headerlink" href="#ContextInitialization.entryPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> Constructor</p>
+<p>Specify a custom entrypoint.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ContextInitialization.name">
+<code class="descclassname">ContextInitialization.</code><code class="descname">name</code><a class="headerlink" href="#ContextInitialization.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> undefined | string</p>
+<p>The name of the program. Should not be specified if using
+a custom entrypoint.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ContextInitialization.providers">
+<code class="descclassname">ContextInitialization.</code><code class="descname">providers</code><a class="headerlink" href="#ContextInitialization.providers" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> InjectionRegistrationKey[]</p>
+<p>List of providers, including all controllers and exception
+filters. Providers listed here will be available for
+dependency injection throughout the rest of the program.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="ContextInitialization.version">
+<code class="descclassname">ContextInitialization.</code><code class="descname">version</code><a class="headerlink" href="#ContextInitialization.version" title="Permalink to this definition">¶</a></dt>
+<dd><p><strong>type:</strong> undefined | string</p>
+<p>The version of the program. Should not be specified if using
+a custom entrypoint.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="entrypoint">
+<h2>EntryPoint<a class="headerlink" href="#entrypoint" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="EntryPoint">
+<code class="descname">EntryPoint</code><span class="sig-paren">(</span><em>metaInfo</em><span class="sig-paren">)</span><a class="headerlink" href="#EntryPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an <cite>EntryPoint</cite> decorator.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first simple">
+<li><strong>metaInfo</strong> (<em>MetaInfo</em>) – Meta info about the program. Includes the program name and version.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><strong>(Anonymous function)</strong> – The decorator used to designate the class as a custom entrypoint.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">A custom interface must inject <cite>cliService</cite> and call <cite>cliService.parse</cite> in
+the <cite>run</cite> method. The <a class="reference internal" href="#Runnable" title="Runnable"><code class="xref js js-class docutils literal notranslate"><span class="pre">Runnable()</span></code></a> interface can be used to help remember
+to specify a <cite>run</cite> method.</p>
+</div>
+<dl class="class">
+<dt id="Runnable">
+<em class="property">class </em><code class="descname">Runnable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Runnable" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>interface</em>, <em>exported from</em> <code class="xref js js-mod docutils literal notranslate"><span class="pre">ommander-mv</span></code></p>
+<p>Runnable interface. Intended to be used on a custom
+entrypoint.</p>
+<dl class="function">
+<dt id="Runnable.run">
+<code class="descclassname">Runnable.</code><code class="descname">run</code><span class="sig-paren">(</span><em>argv</em><span class="sig-paren">)</span><a class="headerlink" href="#Runnable.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the program.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Arguments:</th><td class="field-body"><ul class="first last simple">
+<li><strong>argv</strong> (<em>string[]</em>) – Arguments to run the program with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nd">@EntryPoint</span><span class="p">({</span> 
+  <span class="n">name</span><span class="p">:</span> <span class="s1">&#39;context-example&#39;</span><span class="p">,</span>
+  <span class="n">version</span><span class="p">:</span> <span class="s1">&#39;1.0.0&#39;</span>
+<span class="p">})</span>
+<span class="n">export</span> <span class="k">class</span> <span class="nc">Program</span> <span class="p">{</span>
+  <span class="n">constructor</span> <span class="p">({</span> <span class="n">cliService</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">cliService</span> <span class="o">=</span> <span class="n">cliService</span>
+  <span class="p">}</span>
+
+  <span class="n">run</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">this</span><span class="o">.</span><span class="n">cliService</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">const</span> <span class="n">customProvider</span> <span class="o">=</span> <span class="n">provide</span><span class="p">(</span><span class="s1">&#39;customProvider&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="o">/*</span> <span class="o">...</span> <span class="o">*/</span> <span class="p">})</span>
+
+<span class="n">initializeContext</span><span class="p">({</span>
+  <span class="n">entryPoint</span><span class="p">:</span> <span class="n">Program</span><span class="p">,</span>
+  <span class="n">providers</span><span class="p">:</span> <span class="p">[</span>
+    <span class="n">AccountService</span><span class="p">,</span>
+    <span class="n">AccountController</span><span class="p">,</span>
+    <span class="n">ConfigService</span><span class="p">,</span>
+    <span class="n">customProvider</span>
+  <span class="p">]</span>
+<span class="p">})</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="filter.html" class="btn btn-neutral" title="Exception Filter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Martin Fracker.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0.2',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
