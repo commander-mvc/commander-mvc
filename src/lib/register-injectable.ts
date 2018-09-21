@@ -5,6 +5,7 @@ import { controllerExists, getController } from './tables/controller-table'
 import { constructorToToken } from './constructor-to-token'
 import { InjectableTableEntry } from './interfaces/injectable-table.interface'
 import { InjectionRegistrationKey } from './interfaces/injection-registration-key'
+import { registrationKeys } from '@app/lib/registration-keys'
 
 export const controllersToResolve: string[] = []
 
@@ -12,6 +13,10 @@ export function registerInjectable (injectable: InjectionRegistrationKey) {
   if (typeof injectable === 'string') {
     registerInjection(injectable, getInjectable(injectable))
   } else {
+    const register = injectable[registrationKeys.injectable]
+    if (register) {
+      register()
+    }
     const token = constructorToToken(injectable)
     registerInjection(token, getInjectable(token))
   }
