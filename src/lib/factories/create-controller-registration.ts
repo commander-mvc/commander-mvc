@@ -6,7 +6,7 @@ import { container } from '../container'
 import { ControllerInfo, ControllerTableEntry } from '../interfaces/controller-table.interface'
 import { CommanderStatic } from 'commander'
 import { createActionHandler } from '../create-action-handler'
-import { Constructor } from 'awilix'
+import { Constructor, asClass } from 'awilix'
 import { registrationKeys } from '../registration-keys'
 
 export function createControllerRegistration ({ constructor, controllerInfo }: {
@@ -17,7 +17,9 @@ export function createControllerRegistration ({ constructor, controllerInfo }: {
     const token = constructorToToken(constructor)
     const entry = addController(token, controllerInfo)
     registerCommand({ entry, token })
-    Injectable()(constructor)
+    container.register({
+      [token]: asClass(constructor)
+    })
   }
 }
 
@@ -25,12 +27,10 @@ function registerCommand ({ entry, token }: {
   entry: ControllerTableEntry,
   token: string
 }) {
-  entry.registerCommand = () => {
-    const command: CommanderStatic = container.cradle.cliService
-      .command(entry.command)
-    registerCommandOptions({ entry, command })
-    registerCommandAction({ entry, command, token })
-  }
+  const command: CommanderStatic = container.cradle.cliService
+    .command(entry.command)
+  registerCommandOptions({ entry, command })
+  registerCommandAction({ entry, command, token })
 }
 
 function registerCommandOptions ({ entry, command }: {

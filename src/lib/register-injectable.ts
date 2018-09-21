@@ -16,6 +16,7 @@ export function registerInjectable (injectable: InjectionRegistrationKey) {
     const register = injectable[registrationKeys.injectable]
     if (register) {
       register()
+      return
     }
     const token = constructorToToken(injectable)
     registerInjection(token, getInjectable(token))
@@ -26,14 +27,6 @@ function registerInjection (token: string, injection: InjectableTableEntry<any>)
   container.register({
     [token]: getResolver(injection)
   })
-  registerCommandIfController(token)
-}
-
-function registerCommandIfController (token: string) {
-  if (controllerExists(token)) {
-    const { registerCommand } = getController(token)
-    registerCommand()
-  }
 }
 
 function getResolver (options: InjectableTableEntry<any>) {
