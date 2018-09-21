@@ -1,7 +1,6 @@
 import { each } from 'lodash'
-import { addController } from '../tables/controller-table'
+import { newControllerEntry } from '../tables/controller-table'
 import { constructorToToken } from '../constructor-to-token'
-import { Injectable } from '../decorators/injectable'
 import { container } from '../container'
 import { ControllerInfo, ControllerTableEntry } from '../interfaces/controller-table.interface'
 import { CommanderStatic } from 'commander'
@@ -15,22 +14,24 @@ export function createControllerRegistration ({ constructor, controllerInfo }: {
 }) {
   constructor[registrationKeys.injectable] = () => {
     const token = constructorToToken(constructor)
-    const entry = addController(token, controllerInfo)
-    registerCommand({ entry, token })
+    const entry = newControllerEntry(controllerInfo)
+    const actions = constructor[registrationKeys.actions]
+    registerCommand({ entry, actions, token })
     container.register({
       [token]: asClass(constructor)
     })
   }
 }
 
-function registerCommand ({ entry, token }: {
+function registerCommand ({ entry, actions, token }: {
   entry: ControllerTableEntry,
+  actions: any[],
   token: string
 }) {
   const command: CommanderStatic = container.cradle.cliService
     .command(entry.command)
   registerCommandOptions({ entry, command })
-  registerCommandAction({ entry, command, token })
+  registerCommandAction({ command, actions, token })
 }
 
 function registerCommandOptions ({ entry, command }: {
@@ -42,14 +43,13 @@ function registerCommandOptions ({ entry, command }: {
   })
 }
 
-function registerCommandAction ({ entry, command, token }: {
-  entry: ControllerTableEntry
+function registerCommandAction ({ command, actions, token }: {
   command: any
+  actions: any[],
   token: string
 }) {
-  const { actionsForOptions, actionViews } = entry
   command
     .action(createActionHandler({
-      actionsForOptions, actionViews, token
+      actions, token
     }))
 }

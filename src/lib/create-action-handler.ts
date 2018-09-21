@@ -1,13 +1,13 @@
-import { TakeArg, ForOptionsMethodPair, ViewMap, HasArg } from './interfaces'
+import { TakeArg, HasArg, View } from './interfaces'
 import { container } from './container'
-import { Options } from './interfaces/action-info.interface'
+import { Options, ForOptions } from './interfaces/action-info.interface'
 import { filterExceptions } from './filter-exceptions'
 import { last, first } from 'lodash'
+import { Constructor } from 'awilix'
 
-export function createActionHandler ({ token, actionsForOptions, actionViews }: {
+export function createActionHandler ({ token, actions }: {
   token: string,
-  actionsForOptions: ForOptionsMethodPair[],
-  actionViews: ViewMap
+  actions: { methodName: string, forOptions: ForOptions, view: Constructor<View> }[]
 }) {
   return async (...args: any[]) => {
     const options: Options = last(args)
@@ -17,14 +17,12 @@ export function createActionHandler ({ token, actionsForOptions, actionViews }: 
       controller.takeArg(arg)
     }
     controller.arg = arg
-    for (const { forOptions, methodName } of actionsForOptions) {
+    for (const { forOptions, methodName, view } of actions) {
       if (forOptions(options)) {
         await filterExceptions(async () => {
           const model = await controller[methodName](options)
-          const View = actionViews[methodName]
-          if (View) {
-            const view = new View(container.cradle)
-            view.print(model)
+          if (view) {
+            new view(container.cradle).print(model)
           }
         })
         break
