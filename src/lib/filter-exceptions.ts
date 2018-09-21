@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import { table } from './tables/filter-table'
 import { container } from './container'
 import { inspect } from 'util'
