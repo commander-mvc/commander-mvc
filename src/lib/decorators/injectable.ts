@@ -1,8 +1,6 @@
-import { Lifetime } from '../..'
-import { constructorToToken } from '../constructor-to-token'
-import { provide } from '../provide'
 import { InjectableTableEntry } from '../interfaces/injectable-table.interface'
 import { Constructor } from 'awilix'
+import { createInjectableRegistration } from '../factories/create-injectable-registration'
 
 /**
  * Creates an `Injectable` decorator.
@@ -17,14 +15,7 @@ import { Constructor } from 'awilix'
 export function Injectable<T extends Constructor<T>> (
   injectableInfo: InjectableTableEntry<T> = {} as InjectableTableEntry<T>
 ) {
-  let { lifetime, provider } = injectableInfo
   return (constructor: T) => {
-    lifetime = lifetime || Lifetime.TRANSIENT
-    const token = constructorToToken(constructor)
-    provider = provider || { useConstructor: constructor }
-    provide(token, {
-      lifetime,
-      provider
-    })
+    createInjectableRegistration(constructor, injectableInfo)
   }
 }

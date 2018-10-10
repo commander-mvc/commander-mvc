@@ -1,7 +1,9 @@
+import { asClass, asValue, asFunction, Constructor } from 'awilix'
 import { addInjectable } from './tables/injection-table'
 import { registerInjectable } from './register-injectable'
-import { Constructor } from 'awilix'
 import { InjectableTableEntry } from './interfaces/injectable-table.interface'
+import { container } from './container'
+import { registrationKeys } from './registration-keys'
 
 export function provideAll (injectables) {
   injectables.forEach(injectable => {
@@ -21,6 +23,32 @@ export function provide<T extends Constructor<T>> (
   name: string,
   injectableInfo: InjectableTableEntry<T>
 ) {
-  addInjectable(name, injectableInfo)
-  return name
+  return {
+    [registrationKeys.injectable]: provideRaw(name, injectableInfo)
+  }
+}
+
+export function provideRaw<T extends Constructor<T>> (
+  name: string,
+  injectableInfo: InjectableTableEntry<T>
+) {
+  return () => {
+    const resolver = getResolver(injectableInfo)
+    container.register({
+      [name]: resolver
+    })
+  }
+}
+
+function getResolver (options: InjectableTableEntry<any>) {
+  const provider = options.provider
+  if (provider.useConstructor) {
+    return asClass(provider.useConstructor, options)
+  } else if (provider.useValue) {
+    return asValue(provider.useValue)
+  } else if (provider.useFactory) {
+    return asFunction(provider.useFactory)
+  } else {
+    throw new Error('useConstructor, useValue, or useFactory must be specified')
+  }
 }

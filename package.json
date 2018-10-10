@@ -6,6 +6,7 @@
   "scripts": {
     "build": "rimraf dist && tsc",
     "test": "npm run lint && jest --coverage",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
     "lint": "tslint -c tslint.json -p tsconfig.json | snazzy",
     "docs": "make -C docs html",
     "commit": "git-cz",
